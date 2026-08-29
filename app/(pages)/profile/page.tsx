@@ -160,76 +160,65 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className={styles.page}>
-      <div className={styles.card}>
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Основное</h2>
-          <form
-            onSubmit={nameForm.handleSubmit(onNameSubmit)}
-            className={styles.form}
-          >
-            <Input
-              label="Имя"
-              {...nameForm.register('name')}
-              error={nameForm.formState.errors.name?.message}
-            />
-            <Button type="submit" loading={isLoadingName}>
-              Сохранить
-            </Button>
-          </form>
-        </div>
-
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Email</h2>
-          <form
-            onSubmit={emailForm.handleSubmit(onEmailSubmit)}
-            className={styles.form}
-          >
-            <Input
-              label="Email"
-              {...emailForm.register('email')}
-              error={emailForm.formState.errors.email?.message}
-            />
-            <Button type="submit" loading={isLoadingEmail}>
-              Сохранить
-            </Button>
-          </form>
-        </div>
-
-        <div className={styles.section}>
-          <h2 className={styles.sectionTitle}>Пароль</h2>
-          <form
-            onSubmit={passwordForm.handleSubmit(onPasswordSubmit)}
-            className={styles.form}
-          >
-            <Input
-              label="Текущий пароль"
-              type="password"
-              {...passwordForm.register('currentPassword')}
-              error={passwordForm.formState.errors.currentPassword?.message}
-            />
-            <Input
-              label="Новый пароль"
-              type="password"
-              {...passwordForm.register('newPassword')}
-              error={passwordForm.formState.errors.newPassword?.message}
-            />
-            <Input
-              label="Новый пароль ещё раз"
-              type="password"
-              {...passwordForm.register('confirmPassword')}
-              error={passwordForm.formState.errors.confirmPassword?.message}
-            />
-            <Button type="submit" loading={isLoadingPassword}>
-              Сохранить
-            </Button>
-          </form>
-        </div>
-
-        <Button fullWidth variant="secondary" onClick={handleSignOut}>
-          Выйти из аккаунта
-        </Button>
+    <div className={styles.container}>
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Основное</h2>
+        <form onSubmit={nameForm.handleSubmit(onNameSubmit)} className={styles.form}>
+          <Input
+            label="Имя"
+            {...nameForm.register('name')}
+            error={nameForm.formState.errors.name?.message}
+          />
+          <Button type="submit" loading={isLoadingName}>
+            Сохранить
+          </Button>
+        </form>
       </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Email</h2>
+        <form onSubmit={emailForm.handleSubmit(onEmailSubmit)} className={styles.form}>
+          <Input
+            label="Email"
+            {...emailForm.register('email')}
+            error={emailForm.formState.errors.email?.message}
+          />
+          <Button type="submit" loading={isLoadingEmail}>
+            Сохранить
+          </Button>
+        </form>
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Пароль</h2>
+        <form onSubmit={passwordForm.handleSubmit(onPasswordSubmit)} className={styles.form}>
+          <Input
+            label="Текущий пароль"
+            type="password"
+            {...passwordForm.register('currentPassword')}
+            error={passwordForm.formState.errors.currentPassword?.message}
+          />
+          <Input
+            label="Новый пароль"
+            type="password"
+            {...passwordForm.register('newPassword')}
+            error={passwordForm.formState.errors.newPassword?.message}
+          />
+          <Input
+            label="Новый пароль ещё раз"
+            type="password"
+            {...passwordForm.register('confirmPassword')}
+            error={passwordForm.formState.errors.confirmPassword?.message}
+          />
+          <Button type="submit" loading={isLoadingPassword}>
+            Сохранить
+          </Button>
+        </form>
+      </div>
+
+      <Button fullWidth variant="secondary" onClick={handleSignOut}>
+        Выйти из аккаунта
+      </Button>
 
       <ConfirmModal
         isOpen={isConfirmOpen}

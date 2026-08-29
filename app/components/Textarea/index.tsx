@@ -29,8 +29,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       const textarea = innerRef.current;
       if (!textarea) return 200;
       const style = window.getComputedStyle(textarea);
-      const lineHeight =
-        parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.4;
+      const lineHeight = parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.4;
       return lineHeight * 20;
     };
 

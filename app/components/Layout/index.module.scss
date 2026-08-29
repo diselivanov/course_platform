@@ -1,33 +1,41 @@
 @use '@/app/variables.scss' as *;
-@use '@/app/mixins.scss' as *;
 
 .container {
   display: flex;
-  flex-direction: column;
   height: 100vh;
 }
 
-.header {
-  height: $header-height;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: $color-background-primary;
+.sidebar {
+  width: $sidebar-width;
   flex-shrink: 0;
-  border-bottom: 1px solid $color-border;
-}
-
-.section {
+  border-right: 1px solid $color-border;
+  padding: 20px;
   display: flex;
-  gap: 8px;
-  align-items: center;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .logo {
   font-size: $font-size-big;
   font-weight: 600;
   color: $color-text-primary;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.link {
+  color: $color-text-primary;
+  font-size: $font-size-main;
+
+  &:hover {
+    color: $color-blue;
+    text-decoration: underline;
+  }
 }
 
 .main {

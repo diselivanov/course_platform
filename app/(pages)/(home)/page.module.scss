@@ -1,5 +1,38 @@
 @use '@/app/variables.scss' as *;
 
-.page {
+.container {
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.controls {
   display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  button {
+    padding: 6px 16px;
+    border: 1px solid $color-border;
+    border-radius: $radius-control;
+    background: $color-background-primary;
+    color: $color-text-primary;
+    cursor: pointer;
+    font-size: $font-size-main;
+
+    &:hover {
+      background: $color-background-secondary;
+    }
+
+    &.active {
+      background: $color-blue;
+      color: $color-text-inverse;
+      border-color: $color-blue;
+    }
+  }
+}
+
+.diffWrapper {
+  border: 1px solid $color-border;
+  border-radius: $radius-container;
+  overflow: hidden;
 }

@@ -1,21 +1,21 @@
 import { Metadata } from 'next';
-import { Onest } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
 import Layout from '@/app/components/Layout';
 import './globals.scss';
 
-const onest = Onest({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-onest',
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
   title: {
-    template: 'Abkhaz Store - %s',
-    default: 'Abkhaz Store',
+    template: 'Wincode - %s',
+    default: 'Wincode',
   },
-  description: 'Доска объявлений Абхазии',
+  description: '',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className={onest.variable}>
+    <html lang="ru" className={`${jetbrainsMono.variable}`}>
       <body>
         <Layout>{children}</Layout>
       </body>

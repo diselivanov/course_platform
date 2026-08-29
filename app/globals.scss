@@ -1,5 +1,4 @@
 @use '@/app/variables.scss' as *;
-@use '@/app/mixins.scss' as *;
 
 html {
   height: 100%;
@@ -17,17 +16,16 @@ body {
   flex-direction: column;
   color: $color-text-primary;
   background: $color-background-primary;
-  font-family: var(--font-onest), Arial, sans-serif;
   font-size: $font-size-main;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  font-family: var(--font-onest), Arial, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--font-jetbrains-mono), system-ui, sans-serif;
 }
 
 a {
