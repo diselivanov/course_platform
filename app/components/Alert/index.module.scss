@@ -1,0 +1,86 @@
+@use '@/app/variables.scss' as *;
+
+.container {
+  position: fixed;
+  top: $header-height + 10px;
+  right: 24px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: slideIn 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+
+  &.exiting {
+    animation: slideOut 0.2s cubic-bezier(0.55, 0, 0.1, 1) forwards;
+  }
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  height: $control-height;
+  border-radius: $radius-control;
+  background: $color-black-transparent-70;
+  backdrop-filter: blur($blur);
+  font-size: $font-size-main;
+  color: $color-text-inverse;
+  pointer-events: auto;
+
+  &.error {
+    svg {
+      color: $color-red;
+    }
+  }
+
+  &.success {
+    svg {
+      color: $color-green;
+    }
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    display: block;
+  }
+}
+
+.message {
+  flex: 1;
+  word-break: break-word;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  40% {
+    opacity: 0.8;
+    transform: translateX(-2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}

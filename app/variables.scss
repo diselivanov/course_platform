@@ -1,0 +1,48 @@
+$color-text-primary: rgb(0, 0, 0);
+$color-text-secondary: rgb(102, 118, 133);
+$color-text-tertiary: rgb(154, 157, 164);
+$color-text-inverse: rgb(255, 255, 255);
+
+$color-background-primary: rgb(255, 255, 255);
+$color-background-secondary: rgb(246, 247, 252);
+$color-background-tertiary: rgb(241, 242, 247);
+
+$color-icon: rgb(153, 163, 175);
+$color-border: rgb(230, 230, 232);
+
+$color-red: rgb(248, 73, 104);
+$color-red-transparent-60: rgba(248, 73, 104, 0.6);
+
+$color-green: #00c451;
+
+$color-blue: rgb(0, 113, 227);
+$color-blue-hover: rgb(5, 124, 244);
+$color-blue-transparent-10: rgb(0, 113, 227, 0.1);
+
+$color-black-transparent-25: rgba(0, 0, 0, 0.25);
+$color-black-transparent-60: rgba(0, 0, 0, 0.6);
+$color-black-transparent-70: rgba(0, 0, 0, 0.7);
+
+$shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+$blur: 2px;
+
+$radius-control: 8px;
+$radius-container: 10px;
+$radius-full: 999px;
+
+$font-size-big: 20px;
+$font-size-large: 16px;
+$font-size-main: 14px;
+$font-size-small: 13px;
+$font-size-tiny: 12px;
+
+$control-height: 36px;
+$control-height-small: 28px;
+$badge-height: 24px;
+$header-height: 50px;
+$sidebar-width: 320px;
+
+$avatar-size-s: 36px;
+$avatar-size-m: 46px;
+$avatar-size-l: 80px;

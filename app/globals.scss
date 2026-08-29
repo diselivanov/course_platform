@@ -1,0 +1,39 @@
+@use '@/app/variables.scss' as *;
+@use '@/app/mixins.scss' as *;
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: $color-text-primary;
+  background: $color-background-primary;
+  font-family: var(--font-onest), Arial, sans-serif;
+  font-size: $font-size-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  font-family: var(--font-onest), Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+::placeholder {
+  color: $color-text-tertiary;
+}

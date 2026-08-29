@@ -1,0 +1,34 @@
+@use '@/app/variables.scss' as *;
+@use '@/app/mixins.scss' as *;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.label {
+  font-size: $font-size-small;
+  color: $color-text-secondary;
+}
+
+.input {
+  height: $control-height;
+  padding: 0 14px;
+  font-size: $font-size-main;
+  border: 1px solid $color-border;
+  border-radius: $radius-control;
+  background: $color-background-primary;
+  color: $color-text-primary;
+  outline: none;
+
+  &.error {
+    border-color: $color-red;
+  }
+}
+
+.errorText {
+  font-size: $font-size-small;
+  color: $color-red;
+}

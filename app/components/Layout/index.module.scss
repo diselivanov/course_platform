@@ -1,0 +1,36 @@
+@use '@/app/variables.scss' as *;
+@use '@/app/mixins.scss' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  height: $header-height;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $color-background-primary;
+  flex-shrink: 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.section {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logo {
+  font-size: $font-size-big;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+}

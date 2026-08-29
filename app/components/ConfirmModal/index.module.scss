@@ -1,0 +1,41 @@
+@use '@/app/variables.scss' as *;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: $color-black-transparent-25;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  max-width: 420px;
+  width: 100%;
+  padding: 20px;
+  background: $color-background-primary;
+  border-radius: $radius-container;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: $font-size-large;
+  font-weight: 600;
+  color: $color-text-primary;
+}
+
+.description {
+  font-size: $font-size-main;
+  color: $color-text-secondary;
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}

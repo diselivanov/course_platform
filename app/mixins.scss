@@ -1,0 +1,7 @@
+@use '@/app/variables.scss' as *;
+
+@mixin title {
+  font-size: $font-size-big;
+  font-weight: 600;
+  color: $color-text-primary;
+}

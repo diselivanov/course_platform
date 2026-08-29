@@ -1,0 +1,51 @@
+@use '@/app/variables.scss' as *;
+@use '@/app/mixins.scss' as *;
+
+.button {
+  padding: 0 14px;
+  font-size: $font-size-main;
+  font-weight: 500;
+  border: none;
+  border-radius: $radius-control;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.default {
+  height: $control-height;
+}
+
+.small {
+  height: $control-height-small;
+  border-radius: $radius-control;
+  font-size: $font-size-small;
+  padding: 0 14px;
+}
+
+.primary {
+  background: $color-blue;
+  color: $color-text-inverse;
+
+  &:hover:not(:disabled) {
+    background: $color-blue-hover;
+  }
+}
+
+.secondary {
+  background: $color-background-tertiary;
+  color: $color-text-primary;
+
+  &:hover:not(:disabled) {
+    background: $color-background-secondary;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}

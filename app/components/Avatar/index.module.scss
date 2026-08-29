@@ -1,0 +1,47 @@
+@use '@/app/variables.scss' as *;
+
+.avatar {
+  position: relative;
+  border-radius: $radius-full;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: $color-background-tertiary;
+  color: $color-text-secondary;
+}
+
+.s {
+  width: $avatar-size-s;
+  height: $avatar-size-s;
+}
+
+.m {
+  width: $avatar-size-m;
+  height: $avatar-size-m;
+}
+
+.l {
+  width: $avatar-size-l;
+  height: $avatar-size-l;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.letter {
+  font-weight: 500;
+}
+
+.s .letter {
+  font-size: 18px;
+}
+
+.m .letter {
+  font-size: 22px;
+}
+
+.l .letter {
+  font-size: 34px;
+}

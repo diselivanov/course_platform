@@ -1,0 +1,38 @@
+{
+  "name": "wincode",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "ts:check": "npx tsc --noEmit --noUnusedLocals --noUnusedParameters",
+    "db:reset": "npx prisma migrate reset --force",
+    "db:migrate": "npx prisma migrate dev",
+    "structure": "powershell -Command \"Get-ChildItem -Recurse | Where-Object { $_.FullName -notmatch 'node_modules|\\.next|\\.git' } | ForEach-Object { $_.FullName.Substring((Get-Location).Path.LastIndexOf('\\') + 1) }\""
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.7.1",
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^3.0.3",
+    "jsonwebtoken": "^9.0.3",
+    "next": "16.2.12",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.84.0",
+    "react-intersection-observer": "^11.0.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "prisma": "^5.22.0",
+    "prettier": "^3.9.6",
+    "sass": "^1.102.0",
+    "typescript": "^5"
+  }
+}
