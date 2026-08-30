@@ -3,39 +3,92 @@
 .container {
   display: flex;
   height: 100vh;
+  overflow: visible;
 }
 
 .sidebar {
   width: $sidebar-width;
   flex-shrink: 0;
-  border-right: 1px solid $border-defaul;
-  padding: 20px;
+  border-right: 1px solid $border-light;
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  overflow: visible;
+  background: $bg-primary;
 }
 
 .logo {
   font-size: $font-xl;
   font-weight: 600;
   color: $text-primary;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   flex: 1;
+  overflow: visible;
+}
+
+.linkWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: visible;
 }
 
 .link {
-  color: $text-primary;
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  color: $text-secondary;
   font-size: $font-m;
+  text-decoration: none;
+  border-radius: $radius-s;
+  width: 100%;
+  min-width: 0;
+
+  &:hover {
+    background: $bg-secondary;
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $accent-blue-light;
+    color: $accent-blue;
+  }
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  color: $text-secondary;
+  font-size: $font-m;
+  text-decoration: none;
+  border-radius: $radius-s;
+  width: 100%;
+  min-width: 0;
 
   &:hover {
     color: $accent-blue;
     text-decoration: underline;
   }
+}
+
+.linkText {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  min-width: 0;
 }
 
 .main {

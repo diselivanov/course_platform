@@ -1,0 +1,136 @@
+@use '@/app/variables.scss' as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: $control-height-m;
+  background: $bg-secondary;
+  border-radius: $radius-s;
+  border: 1px solid $border-default;
+
+  &.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title {
+  font-size: $font-s;
+  color: $text-secondary;
+  font-family: $font-mono;
+}
+
+.status {
+  font-size: $font-s;
+  padding: 2px 8px;
+  border-radius: $radius-full;
+  font-family: $font-mono;
+
+  &.NEW {
+    background: $accent-green-light;
+    color: $accent-green;
+    border: 1px solid $accent-green-light;
+  }
+
+  &.EDITED {
+    background: $accent-orange-light;
+    color: $accent-orange;
+    border: 1px solid $accent-orange-light;
+  }
+
+  &.DELETED {
+    background: $accent-red-light;
+    color: $accent-red;
+    border: 1px solid $accent-red-light;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 2px;
+}
+
+.actionButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: $text-secondary;
+  border-radius: $radius-s;
+  font-family: $font-mono;
+  font-size: $font-s;
+
+  &:hover {
+    color: $accent-blue;
+  }
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $icon-default;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: $radius-s;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: $bg-tertiary;
+    border-color: $border-default;
+  }
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.body {
+  overflow: hidden;
+
+  &.collapsed {
+    max-height: 0;
+  }
+}
+
+.diff {
+  border-bottom-left-radius: $radius-s;
+  border-bottom-right-radius: $radius-s;
+  border: 1px solid $border-default;
+  border-top: none;
+  overflow: hidden;
+
+  :global(.diff-view),
+  :global(.diff-view *),
+  :global(.diff-line),
+  :global(.diff-line-content),
+  :global(.diff-line-number),
+  :global(.diff-line-content-text),
+  :global(.diff-line-content-text *),
+  :global(.diff-line-content-text span),
+  :global(.diff-line-content-text .token),
+  :global(.diff-line-content-text .token *),
+  :global(.diff-line-content-text .plain),
+  :global(.diff-line-content-text .keyword),
+  :global(.diff-line-content-text .string),
+  :global(.diff-line-content-text .comment),
+  :global(.diff-line-content-text .function),
+  :global(.diff-line-content-text .number),
+  :global(.diff-line-content-text .operator),
+  :global(.diff-line-content-text .variable),
+  :global(.diff-line-content-text .property),
+  :global(.diff-line-content-text .class-name),
+  :global(.diff-line-content-text .punctuation) {
+    font-size: $font-s !important;
+    font-family: $font-mono !important;
+    font-weight: 500;
+  }
+}

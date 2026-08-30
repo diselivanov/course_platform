@@ -1,0 +1,150 @@
+@use '@/app/variables.scss' as *;
+
+.container {
+  padding: 10px 30px;
+}
+
+.title {
+  font-size: $font-xl;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.meta {
+  font-size: $font-m;
+  color: $text-secondary;
+  margin-bottom: 20px;
+}
+
+.adminActions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.lessonHeader {
+  margin-bottom: 16px;
+}
+
+.courseLink {
+  display: inline-block;
+  font-size: $font-m;
+  color: $text-secondary;
+  text-decoration: none;
+  margin-top: 5px;
+
+  &:hover {
+    color: $accent-blue;
+    text-decoration: underline;
+  }
+}
+
+.lessonTitle {
+  font-size: $font-xl;
+  font-weight: 600;
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.files {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.empty {
+  color: $text-secondary;
+  font-size: $font-m;
+}
+
+.viewControls {
+  display: flex;
+  border-radius: $radius-xs;
+  overflow: hidden;
+  border: 1px solid $border-default;
+}
+
+.viewButton {
+  background: $bg-primary;
+  border: none;
+  padding: 5px 10px;
+  font-size: $font-s;
+  font-family: $font-mono;
+  color: $text-tertiary;
+  cursor: pointer;
+
+  &:hover {
+    color: $text-primary;
+  }
+
+  &.active {
+    background: $bg-tertiary;
+    color: $text-primary;
+  }
+}
+
+.htmlContent {
+  font-size: $font-m;
+  line-height: 1.4;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  ul,
+  ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: $text-secondary;
+
+    li {
+      margin-bottom: 4px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  code {
+    padding: 3px 6px;
+    background: $bg-secondary;
+    border-radius: $radius-s;
+    font-size: $font-m;
+    font-family: $font-mono;
+    color: $text-secondary;
+    border: 1px solid $border-default;
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  a {
+    color: $accent-blue;
+    font-size: $font-m;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

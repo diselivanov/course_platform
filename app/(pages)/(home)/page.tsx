@@ -1,79 +1,51 @@
-'use client';
-
-import { useState } from 'react';
-import { DiffView, DiffModeEnum } from '@git-diff-view/react';
-import { generateDiffFile } from '@git-diff-view/file';
-import '@git-diff-view/react/styles/diff-view.css';
+import { prisma } from '@/app/lib/prisma';
+import { checkAdmin } from '@/app/lib/dal';
+import CourseCard from '@/app/components/CourseCard';
+import LinkButton from '@/app/components/LinkButton';
 import styles from './page.module.scss';
 
-const oldCode = `import { useState } from 'react';
+export default async function HomePage() {
+  const isAdmin = await checkAdmin();
 
-export default function HomePage() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <h1>Hello World</h1>
-      <p>Count: {count}</p>
-    </div>
-  );
-}`;
-
-const newCode = `import { useState, useEffect } from 'react';
-
-export default function HomePage() {
-  const [count, setCount] = useState(0);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1000);
-  }, []);
-
-  return (
-    <div className="container">
-      <h1>Hello World!</h1>
-      <p>Count: {count}</p>
-      {loading && <p>Loading...</p>}
-    </div>
-  );
-}`;
-
-export default function HomePage() {
-  const [mode, setMode] = useState<DiffModeEnum>(DiffModeEnum.Split);
-
-  const diffFile = generateDiffFile(
-    'old.tsx',
-    oldCode,
-    'new.tsx',
-    newCode,
-    'typescript',
-    'typescript'
-  );
-
-  diffFile.initTheme('light');
-  diffFile.init();
-  diffFile.buildSplitDiffLines();
+  const courses = await prisma.course.findMany({
+    orderBy: { number: 'asc' },
+    include: {
+      lessons: {
+        select: { id: true },
+      },
+    },
+  });
 
   return (
     <div className={styles.container}>
-      <div className={styles.controls}>
-        <button
-          onClick={() => setMode(DiffModeEnum.Split)}
-          className={mode === DiffModeEnum.Split ? styles.active : ''}
-        >
-          Split
-        </button>
-        <button
-          onClick={() => setMode(DiffModeEnum.Unified)}
-          className={mode === DiffModeEnum.Unified ? styles.active : ''}
-        >
-          Unified
-        </button>
+      <div className={styles.header}>
+        <h1 className={styles.title}>Курсы</h1>
+        {isAdmin && (
+          <LinkButton href="/course/create" size="small">
+            Создать курс
+          </LinkButton>
+        )}
       </div>
-      <div className={styles.diffWrapper}>
-        <DiffView diffFile={diffFile} diffViewMode={mode} diffViewTheme="light" diffViewHighlight />
-      </div>
+
+      {courses.length === 0 ? (
+        <div className={styles.empty}>
+          {isAdmin ? 'Создайте первый курс' : 'Курсы пока не добавлены'}
+        </div>
+      ) : (
+        <div className={styles.grid}>
+          {courses.map(course => (
+            <CourseCard
+              key={course.id}
+              id={course.id}
+              number={course.number}
+              title={course.title}
+              slug={course.slug}
+              shortDescription={course.shortDescription}
+              lessonsCount={course.lessons.length}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

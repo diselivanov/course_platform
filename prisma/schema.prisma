@@ -5,7 +5,7 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-}
+}   
 
 model User {
   id          String   @id @default(cuid())
@@ -20,4 +20,59 @@ model User {
 enum Role {
   USER
   ADMIN
+}
+
+model Course {
+  id               String   @id @default(cuid())
+  number           Int
+  title            String
+  slug             String   @unique
+  shortDescription String
+  fullDescription  String   @db.LongText
+  youtubeUrl       String?
+  vkUrl            String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  lessons          Lesson[]
+
+  @@index([number])
+}
+
+model Lesson {
+  id           String   @id @default(cuid())
+  number       Int
+  title        String
+  slug         String
+  youtubeUrl   String?
+  vkUrl        String?
+  description  String?  @db.LongText
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  courseId     String
+  course       Course   @relation(fields: [courseId], references: [id])
+  files        LessonFile[]
+
+  @@unique([courseId, slug])
+  @@index([courseId, number])
+}
+
+model LessonFile {
+  id        String   @id @default(cuid())
+  number    Int
+  title     String
+  status    FileStatus
+  oldCode   String?   @db.LongText
+  newCode   String?   @db.LongText
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  lessonId  String
+  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+
+  @@index([lessonId, number])
+}
+
+enum FileStatus {
+  NEW
+  EDITED
+  DELETED
 }

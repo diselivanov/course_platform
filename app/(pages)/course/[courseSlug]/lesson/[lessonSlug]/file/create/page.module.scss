@@ -1,11 +1,20 @@
 @use '@/app/variables.scss' as *;
 @use '@/app/mixins.scss' as *;
 
-.wrapper {
+.container {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.title {
+  @include title;
+  margin-bottom: 20px;
+}
+
+.form {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  width: 100%;
+  gap: 16px;
 }
 
 .label {
@@ -13,22 +22,16 @@
   color: $text-secondary;
 }
 
-.textarea {
-  padding: 10px 14px;
+.select {
+  height: $control-height-m;
+  padding: 0 14px;
   font-size: $font-m;
-  font-family: inherit;
-  line-height: 1.4;
   border: 1px solid $border-default;
   border-radius: $radius-s;
   background: $bg-primary;
   color: $text-primary;
   outline: none;
-  resize: vertical;
-  min-height: 80px;
-
-  &.error {
-    border-color: $accent-red;
-  }
+  font-family: inherit;
 }
 
 .errorText {
