@@ -5,22 +5,22 @@
   align-items: center;
   justify-content: center;
   border-radius: $radius-full;
-  border: 1.5px solid $color-border;
-  background: $color-background-primary;
+  border: 1.5px solid $border-defaul;
+  background: $bg-primary;
   cursor: pointer;
   flex-shrink: 0;
   padding: 0;
 
   &:hover:not(.disabled) {
-    border-color: $color-blue;
+    border-color: $accent-blue;
   }
 
   &.checked {
-    background: $color-blue;
-    border-color: $color-blue;
+    background: $accent-blue;
+    border-color: $accent-blue;
 
     svg {
-      color: $color-text-inverse;
+      color: $text-on-color;
     }
   }
 

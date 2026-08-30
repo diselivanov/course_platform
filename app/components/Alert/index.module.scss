@@ -18,22 +18,22 @@
   align-items: center;
   gap: 10px;
   padding: 0 14px;
-  height: $control-height;
-  border-radius: $radius-control;
-  background: $color-black-transparent-25;
-  font-size: $font-size-main;
-  color: $color-text-inverse;
+  height: $control-height-m;
+  border-radius: $radius-s;
+  background: $overlay-dark;
+  font-size: $font-m;
+  color: $text-on-color;
   pointer-events: auto;
 
   &.error {
     svg {
-      color: $color-red;
+      color: $accent-red;
     }
   }
 
   &.success {
     svg {
-      color: $color-green;
+      color: $accent-green;
     }
   }
 }

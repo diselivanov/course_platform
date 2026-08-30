@@ -12,27 +12,27 @@
 
   button {
     padding: 6px 16px;
-    border: 1px solid $color-border;
-    border-radius: $radius-control;
-    background: $color-background-primary;
-    color: $color-text-primary;
+    border: 1px solid $border-defaul;
+    border-radius: $radius-s;
+    background: $bg-primary;
+    color: $text-primary;
     cursor: pointer;
-    font-size: $font-size-main;
+    font-size: $font-m;
 
     &:hover {
-      background: $color-background-secondary;
+      background: $bg-secondary;
     }
 
     &.active {
-      background: $color-blue;
-      color: $color-text-inverse;
-      border-color: $color-blue;
+      background: $accent-blue;
+      color: $text-on-color;
+      border-color: $accent-blue;
     }
   }
 }
 
 .diffWrapper {
-  border: 1px solid $color-border;
-  border-radius: $radius-container;
+  border: 1px solid $border-defaul;
+  border-radius: $radius-m;
   overflow: hidden;
 }

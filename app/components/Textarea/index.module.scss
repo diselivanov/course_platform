@@ -9,30 +9,30 @@
 }
 
 .label {
-  font-size: $font-size-small;
-  color: $color-text-secondary;
+  font-size: $font-s;
+  color: $text-secondary;
 }
 
 .textarea {
   padding: 5px 14px;
-  font-size: $font-size-main;
+  font-size: $font-m;
   font-family: inherit;
   line-height: 1.4;
-  border: 1px solid $color-border;
-  border-radius: $radius-control;
-  background: $color-background-primary;
-  color: $color-text-primary;
+  border: 1px solid $border-defaul;
+  border-radius: $radius-s;
+  background: $bg-primary;
+  color: $text-primary;
   outline: none;
   resize: none;
   overflow: hidden;
   min-height: 80px;
 
   &.error {
-    border-color: $color-red;
+    border-color: $accent-red;
   }
 }
 
 .errorText {
-  font-size: $font-size-small;
-  color: $color-red;
+  font-size: $font-s;
+  color: $accent-red;
 }

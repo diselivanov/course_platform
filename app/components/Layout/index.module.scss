@@ -8,7 +8,7 @@
 .sidebar {
   width: $sidebar-width;
   flex-shrink: 0;
-  border-right: 1px solid $color-border;
+  border-right: 1px solid $border-defaul;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -16,9 +16,9 @@
 }
 
 .logo {
-  font-size: $font-size-big;
+  font-size: $font-xl;
   font-weight: 600;
-  color: $color-text-primary;
+  color: $text-primary;
 }
 
 .nav {
@@ -29,11 +29,11 @@
 }
 
 .link {
-  color: $color-text-primary;
-  font-size: $font-size-main;
+  color: $text-primary;
+  font-size: $font-m;
 
   &:hover {
-    color: $color-blue;
+    color: $accent-blue;
     text-decoration: underline;
   }
 }

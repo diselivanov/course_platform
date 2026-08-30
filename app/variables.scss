@@ -1,42 +1,38 @@
-$color-text-primary: rgb(0, 0, 0);
-$color-text-secondary: rgb(102, 118, 133);
-$color-text-tertiary: rgb(154, 157, 164);
-$color-text-inverse: rgb(255, 255, 255);
+$text-primary: rgb(0, 0, 0);
+$text-secondary: rgb(102, 118, 133);
+$text-on-color: rgb(255, 255, 255);
 
-$color-background-primary: rgb(255, 255, 255);
-$color-background-secondary: rgb(246, 247, 252);
-$color-background-tertiary: rgb(241, 242, 247);
+$bg-primary: rgb(255, 255, 255);
+$bg-secondary: rgb(246, 247, 252);
+$bg-tertiary: rgb(241, 242, 247);
 
-$color-icon: rgb(153, 163, 175);
-$color-border: rgb(230, 230, 232);
+$icon-default: rgb(153, 163, 175);
+$border-defaul: rgb(230, 230, 232);
 
-$color-red: rgb(248, 73, 104);
-$color-red-transparent-60: rgba(248, 73, 104, 0.6);
+$accent-blue: rgb(0, 113, 227);
+$accent-blue-hover: rgb(5, 124, 244);
 
-$color-green: #00c451;
+$accent-red: rgb(248, 73, 104);
+$accent-green: #00c451;
 
-$color-blue: rgb(0, 113, 227);
-$color-blue-hover: rgb(5, 124, 244);
-$color-blue-transparent-10: rgb(0, 113, 227, 0.1);
+$overlay-dark: rgba(0, 0, 0, 0.25);
 
-$color-black-transparent-25: rgba(0, 0, 0, 0.25);
+$shadow-card: 0 4px 16px rgba(0, 0, 0, 0.1);
 
-$shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.1);
-
-$radius-control: 8px;
-$radius-container: 10px;
+$radius-s: 8px;
+$radius-m: 10px;
 $radius-full: 999px;
 
-$font-size-big: 20px;
-$font-size-large: 16px;
-$font-size-main: 13px;
-$font-size-small: 12px;
+$font-xl: 20px;
+$font-l: 16px;
+$font-m: 13px;
+$font-s: 12px;
 
-$control-height: 36px;
-$control-height-small: 28px;
+$control-height-m: 36px;
+$control-height-s: 28px;
 $header-height: 50px;
 $sidebar-width: 260px;
 
-$avatar-size-s: 36px;
-$avatar-size-m: 46px;
-$avatar-size-l: 80px;
+$avatar-s: 36px;
+$avatar-m: 46px;
+$avatar-l: 80px;

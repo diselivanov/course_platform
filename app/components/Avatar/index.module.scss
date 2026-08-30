@@ -5,23 +5,23 @@
   border-radius: $radius-full;
   overflow: hidden;
   flex-shrink: 0;
-  background: $color-background-tertiary;
-  color: $color-text-secondary;
+  background: $bg-tertiary;
+  color: $text-secondary;
 }
 
 .s {
-  width: $avatar-size-s;
-  height: $avatar-size-s;
+  width: $avatar-s;
+  height: $avatar-s;
 }
 
 .m {
-  width: $avatar-size-m;
-  height: $avatar-size-m;
+  width: $avatar-m;
+  height: $avatar-m;
 }
 
 .l {
-  width: $avatar-size-l;
-  height: $avatar-size-l;
+  width: $avatar-l;
+  height: $avatar-l;
 }
 
 .placeholder {

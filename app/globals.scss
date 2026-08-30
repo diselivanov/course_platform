@@ -14,9 +14,9 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  color: $color-text-primary;
-  background: $color-background-primary;
-  font-size: $font-size-main;
+  color: $text-primary;
+  background: $bg-primary;
+  font-size: $font-m;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,5 +33,5 @@ a {
 }
 
 ::placeholder {
-  color: $color-text-tertiary;
+  color: $text-secondary;
 }

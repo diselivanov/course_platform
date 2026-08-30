@@ -3,9 +3,9 @@
 
 .button {
   padding: 0 14px;
-  font-size: $font-size-main;
+  font-size: $font-m;
   border: none;
-  border-radius: $radius-control;
+  border-radius: $radius-s;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -17,31 +17,31 @@
 }
 
 .default {
-  height: $control-height;
+  height: $control-height-m;
 }
 
 .small {
-  height: $control-height-small;
-  border-radius: $radius-control;
-  font-size: $font-size-small;
+  height: $control-height-s;
+  border-radius: $radius-s;
+  font-size: $font-s;
   padding: 0 14px;
 }
 
 .primary {
-  background: $color-blue;
-  color: $color-text-inverse;
+  background: $accent-blue;
+  color: $text-on-color;
 
   &:hover:not(:disabled) {
-    background: $color-blue-hover;
+    background: $accent-blue-hover;
   }
 }
 
 .secondary {
-  background: $color-background-tertiary;
-  color: $color-text-primary;
+  background: $bg-tertiary;
+  color: $text-primary;
 
   &:hover:not(:disabled) {
-    background: $color-background-secondary;
+    background: $bg-secondary;
   }
 }
 

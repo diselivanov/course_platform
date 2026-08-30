@@ -22,12 +22,12 @@
 }
 
 .footer {
-  font-size: $font-size-main;
-  color: $color-text-secondary;
+  font-size: $font-m;
+  color: $text-secondary;
   text-align: center;
 
   a {
-    color: $color-blue;
+    color: $accent-blue;
 
     &:hover {
       text-decoration: underline;
