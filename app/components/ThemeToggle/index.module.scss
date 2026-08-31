@@ -1,0 +1,28 @@
+@use '@/app/variables.scss' as *;
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: $radius-s;
+  background: $bg-secondary;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: $font-s;
+  font-family: inherit;
+
+  &:hover {
+    background: $bg-tertiary;
+    color: $text-primary;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}

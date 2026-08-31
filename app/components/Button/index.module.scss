@@ -14,17 +14,12 @@
   text-decoration: none;
   font-family: inherit;
   min-height: $control-height-m;
-  transition: all 0.1s ease-in;
   user-select: none;
   gap: 6px;
 
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-  }
-
-  svg {
-    transition: transform 0.1s ease;
   }
 }
 

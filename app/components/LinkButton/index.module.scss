@@ -14,7 +14,6 @@
   text-decoration: none;
   font-family: inherit;
   min-height: $control-height-m;
-  transition: all 0.1s ease-in;
   user-select: none;
   gap: 6px;
   width: fit-content;
@@ -23,10 +22,6 @@
     cursor: not-allowed;
     opacity: 0.5;
     pointer-events: none;
-  }
-
-  svg {
-    transition: transform 0.1s ease;
   }
 
   &:hover:not(:disabled) {

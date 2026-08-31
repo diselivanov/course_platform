@@ -117,7 +117,7 @@ export default function DiffView({
           <GitDiffView
             diffFile={diffFile}
             diffViewMode={viewMode}
-            diffViewTheme="light"
+            diffViewTheme="dark"
             diffViewHighlight
           />
         </div>

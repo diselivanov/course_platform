@@ -115,7 +115,7 @@ export default function ClientLayout({ isAuth }: ClientLayoutProps) {
       <div className={styles.sectionTitle}>
         {totalCount > 0 && (
           <span className={styles.sectionCourse}>
-            КУРС
+            КУРС 🎓
             <span className={styles.progressCounter}>
               Уроков: {completedCount} из {totalCount}
             </span>

@@ -1,33 +1,29 @@
-$text-primary: hsl(215, 15%, 12%);
-$text-secondary: hsl(215, 15%, 22%);
-$text-tertiary: hsl(215, 15%, 40%);
-$text-on-color: #fff;
+$text-primary: var(--text-primary, hsl(215, 15%, 12%));
+$text-secondary: var(--text-secondary, hsl(215, 15%, 22%));
+$text-tertiary: var(--text-tertiary, hsl(215, 15%, 40%));
+$text-on-color: var(--text-on-color, #fff);
 
-$bg-primary: #fff;
-$bg-secondary: hsl(215, 15%, 97%);
-$bg-tertiary: hsl(215, 15%, 94%);
+$bg-primary: var(--bg-primary, #fff);
+$bg-secondary: var(--bg-secondary, hsl(215, 15%, 97%));
+$bg-tertiary: var(--bg-tertiary, hsl(215, 15%, 94%));
 
-$icon-default: hsl(215, 15%, 65%);
-$border-default: hsl(215, 15%, 92%);
-$border-light: hsl(215, 15%, 89%);
+$icon-default: var(--icon-default, hsl(215, 15%, 65%));
+$border-default: var(--border-default, hsl(215, 15%, 92%));
 
 $accent-blue: hsl(210, 100%, 45%);
 $accent-blue-hover: hsl(210, 100%, 38%);
-$accent-blue-light: hsla(210, 100%, 45%, 0.1);
+$accent-blue-light: var(--accent-blue-light, hsla(210, 100%, 45%, 0.12));
 
 $accent-red: hsl(355, 98%, 66%);
-$accent-red-light: hsla(355, 98%, 66%, 0.1);
+$accent-red-light: var(--accent-red-light, hsla(355, 98%, 66%, 0.12));
 
 $accent-green: hsl(144, 72%, 37%);
-$accent-green-light: hsla(144, 72%, 37%, 0.1);
+$accent-green-light: var(--accent-green-light, hsla(144, 72%, 37%, 0.12));
 
 $accent-orange: hsl(48, 100%, 44%);
-$accent-orange-light: hsla(48, 100%, 44%, 0.1);
+$accent-orange-light: var(--accent-orange-light, hsla(48, 100%, 44%, 0.12));
 
-$overlay: rgba(0, 0, 0, 0.25);
-$glass: rgba(0, 0, 0, 0.75);
-
-$shadow-card: 0 4px 16px rgba(0, 0, 0, 0.1);
+$overlay: var(--overlay, rgba(0, 0, 0, 0.25));
 
 $radius-xs: 4px;
 $radius-s: 8px;

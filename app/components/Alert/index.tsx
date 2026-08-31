@@ -66,7 +66,6 @@ export function AlertProvider({ children }: AlertProviderProps) {
         timeoutRef.current = null;
       }
 
-      // Сначала скрываем текущий алерт
       if (alert) {
         setIsExiting(true);
         setIsVisible(false);

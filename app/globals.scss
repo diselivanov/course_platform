@@ -32,3 +32,47 @@ body {
 ::placeholder {
   color: $text-tertiary;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-default;
+  border-radius: $radius-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $text-tertiary;
+}
+
+[data-theme='dark'] {
+  --text-primary: hsl(215, 15%, 90%);
+  --text-secondary: hsl(215, 15%, 75%);
+  --text-tertiary: hsl(215, 15%, 55%);
+  --text-on-color: #fff;
+
+  --bg-primary: hsl(215, 15%, 10%);
+  --bg-secondary: hsl(215, 15%, 15%);
+  --bg-tertiary: hsl(215, 15%, 20%);
+
+  --icon-default: hsl(215, 15%, 55%);
+  --border-default: hsl(215, 15%, 20%);
+
+  --overlay: rgba(0, 0, 0, 0.4);
+
+  scrollbar-color: hsl(215, 15%, 30%) transparent;
+}
+
+[data-theme='dark']::-webkit-scrollbar-thumb {
+  background: hsl(215, 15%, 25%);
+}
+
+[data-theme='dark']::-webkit-scrollbar-thumb:hover {
+  background: hsl(215, 15%, 40%);
+}

@@ -13,7 +13,7 @@
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   background: $bg-primary;
   overflow-y: auto;
 }
@@ -23,6 +23,7 @@
   font-weight: 600;
   color: $text-primary;
   padding-left: 10px;
+  margin-bottom: 10px;
   user-select: none;
 
   a {
@@ -38,7 +39,7 @@
     color: $accent-blue;
     background: $accent-blue-light;
     padding: 0 2px 0 0;
-    border-right: 1.5px solid $accent-blue;
+    border-right: 1px solid $accent-blue;
   }
 }
 
@@ -59,7 +60,7 @@
   font-weight: 600;
   color: $text-secondary;
   letter-spacing: 0.5px;
-  padding: 4px 10px;
+  padding: 8px 10px;
   user-select: none;
 }
 
@@ -170,8 +171,55 @@
   font-weight: 400;
 }
 
+.navActions {
+  display: flex;
+  gap: 5px;
+}
+
+.actionButton {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  gap: 8px;
+  border: none;
+  border-radius: $radius-s;
+  background: $bg-secondary;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: $font-s;
+  font-family: inherit;
+
+  &:hover {
+    background: $bg-tertiary;
+    color: $text-primary;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
 .main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
+}
+
+.mainContent {
+  flex: 1;
   padding: 20px 30px;
+}
+
+.footer {
+  flex-shrink: 0;
+  padding: 12px 30px;
+  border-top: 1px solid $border-default;
+  font-size: $font-s;
+  color: $text-tertiary;
+  text-align: center;
 }
