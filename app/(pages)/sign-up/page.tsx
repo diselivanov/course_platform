@@ -60,8 +60,9 @@ export default function SignUpPage() {
         />
 
         <Input
-          label="Подтвердите пароль"
+          label="Пароль ещё раз"
           type="password"
+
           error={errors.confirmPassword?.message}
           {...register('confirmPassword')}
         />

@@ -53,12 +53,6 @@ export default function DiffView({
   diffFile.buildSplitDiffLines();
   diffFile.buildUnifiedDiffLines();
 
-  const statusLabels = {
-    NEW: 'New',
-    EDITED: 'Edited',
-    DELETED: 'Deleted',
-  };
-
   const handleEdit = () => {
     router.push(`/course/${courseSlug}/lesson/${lessonSlug}/file/${id}/edit`);
   };
@@ -93,8 +87,8 @@ export default function DiffView({
     <div className={styles.container}>
       <div className={`${styles.header} ${isOpen ? styles.open : ''}`}>
         <div className={styles.left}>
+          <span className={`${styles.status} ${styles[status]}`}></span>
           <span className={styles.title}>{title}</span>
-          <span className={`${styles.status} ${styles[status]}`}>{statusLabels[status]}</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           {isAdmin && (

@@ -29,27 +29,20 @@
 }
 
 .status {
-  font-size: $font-s;
-  padding: 2px 8px;
+  width: 6px;
+  height: 6px;
   border-radius: $radius-full;
-  font-family: $font-mono;
 
   &.NEW {
-    background: $accent-green-light;
-    color: $accent-green;
-    border: 1px solid $accent-green-light;
+    background: $accent-green;
   }
 
   &.EDITED {
-    background: $accent-orange-light;
-    color: $accent-orange;
-    border: 1px solid $accent-orange-light;
+    background: $accent-orange;
   }
 
   &.DELETED {
-    background: $accent-red-light;
-    color: $accent-red;
-    border: 1px solid $accent-red-light;
+    background: $accent-red;
   }
 }
 

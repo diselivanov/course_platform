@@ -26,8 +26,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-jetbrains-mono), system-ui, sans-serif;
+  scrollbar-width: thin;
 }
 
 ::placeholder {
-  color: $text-secondary;
+  color: $text-tertiary;
 }

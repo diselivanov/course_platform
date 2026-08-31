@@ -37,7 +37,6 @@ export default async function HomePage() {
             <CourseCard
               key={course.id}
               id={course.id}
-              number={course.number}
               title={course.title}
               slug={course.slug}
               shortDescription={course.shortDescription}

@@ -1,18 +1,8 @@
 @use '@/app/variables.scss' as *;
 
-.container {
-  padding: 10px 30px;
-}
-
 .title {
   font-size: $font-xl;
   font-weight: 600;
-  margin-bottom: 5px;
-}
-
-.meta {
-  font-size: $font-m;
-  color: $text-secondary;
   margin-bottom: 20px;
 }
 
@@ -59,6 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -80,7 +71,7 @@
   padding: 5px 10px;
   font-size: $font-s;
   font-family: $font-mono;
-  color: $text-tertiary;
+  color: $text-secondary;
   cursor: pointer;
 
   &:hover {

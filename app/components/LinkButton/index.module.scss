@@ -4,49 +4,86 @@
 .button {
   padding: 0 14px;
   font-size: $font-m;
-  border: none;
+  font-weight: 500;
+  border: 1px solid;
   border-radius: $radius-s;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  font-family: inherit;
+  min-height: $control-height-m;
+  transition: all 0.1s ease-in;
+  user-select: none;
+  gap: 6px;
+  width: fit-content;
 
   &:disabled {
     cursor: not-allowed;
+    opacity: 0.5;
     pointer-events: none;
+  }
+
+  svg {
+    transition: transform 0.1s ease;
+  }
+
+  &:hover:not(:disabled) {
+    svg {
+      transform: translateX(2px);
+    }
   }
 }
 
-.default {
-  height: $control-height-m;
-}
-
 .small {
-  height: $control-height-s;
-  border-radius: $radius-s;
+  min-height: $control-height-s;
   font-size: $font-s;
   padding: 0 14px;
+  border-radius: $radius-s;
 }
 
 .primary {
-  background: $accent-blue;
   color: $text-on-color;
+  background: $accent-blue;
+  border-color: $accent-blue-hover;
+  text-shadow: 0 1px 1px rgba(9, 11, 11, 0.6);
+  box-shadow:
+    rgba(51, 153, 255, 0.5) 0px 1px 0px inset,
+    rgba(0, 77, 153, 0.4) 0px -1px 0px 1px inset,
+    rgba(9, 11, 11, 0.1) 0px 2px 4px 0px;
 
   &:hover:not(:disabled) {
     background: $accent-blue-hover;
+    border-color: $accent-blue-hover;
+    box-shadow:
+      rgba(51, 153, 255, 0.3) 0px 1px 0px inset,
+      rgba(0, 77, 153, 0.3) 0px -1px 0px 1px inset,
+      rgba(9, 11, 11, 0.15) 0px 2px 6px 0px;
   }
 }
 
 .secondary {
-  background: $bg-tertiary;
   color: $text-primary;
+  background: $bg-secondary;
+  border-color: $border-default;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  box-shadow:
+    rgba(0, 0, 0, 0.02) 0px 1px 0px inset,
+    rgba(0, 0, 0, 0.05) 0px -1px 0px 1px inset,
+    rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
   &:hover:not(:disabled) {
-    background: $bg-secondary;
+    background: $bg-tertiary;
+    border-color: $border-default;
+    box-shadow:
+      rgba(0, 0, 0, 0.02) 0px 1px 0px inset,
+      rgba(0, 0, 0, 0.05) 0px -1px 0px 1px inset,
+      rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
   }
 }
 
 .fullWidth {
   width: 100%;
+  justify-content: center;
 }

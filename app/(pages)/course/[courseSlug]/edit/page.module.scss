@@ -2,8 +2,7 @@
 @use '@/app/mixins.scss' as *;
 
 .container {
-  max-width: 600px;
-  padding: 20px;
+  max-width: $form-width-m;
 }
 
 .title {
@@ -15,4 +14,9 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
 }

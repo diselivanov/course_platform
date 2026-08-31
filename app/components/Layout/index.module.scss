@@ -3,29 +3,42 @@
 .container {
   display: flex;
   height: 100vh;
-  overflow: visible;
 }
 
 .sidebar {
   width: $sidebar-width;
   flex-shrink: 0;
-  border-right: 1px solid $border-light;
+  border-right: 1px solid $border-default;
   padding: 10px;
+  padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow: visible;
   background: $bg-primary;
+  overflow-y: auto;
 }
 
 .logo {
   font-size: $font-xl;
   font-weight: 600;
   color: $text-primary;
+  padding-left: 10px;
+  user-select: none;
 
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  .win {
+    color: $text-primary;
+  }
+
+  .code {
+    color: $accent-blue;
+    background: $accent-blue-light;
+    padding: 0 2px 0 0;
+    border-right: 1.5px solid $accent-blue;
   }
 }
 
@@ -33,19 +46,39 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: visible;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: $font-s;
+  font-weight: 600;
+  color: $text-secondary;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  user-select: none;
+}
+
+.sectionCourse {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .linkWrapper {
   position: relative;
   display: flex;
   align-items: center;
-  overflow: visible;
 }
 
 .link {
   display: flex;
   align-items: center;
+  gap: 8px;
   padding: 6px 10px;
   color: $text-secondary;
   font-size: $font-m;
@@ -53,15 +86,14 @@
   border-radius: $radius-s;
   width: 100%;
   min-width: 0;
+  user-select: none;
 
   &:hover {
     background: $bg-secondary;
-    color: $text-primary;
   }
 
   &.active {
-    background: $accent-blue-light;
-    color: $accent-blue;
+    background: $bg-tertiary;
   }
 }
 
@@ -75,6 +107,7 @@
   border-radius: $radius-s;
   width: 100%;
   min-width: 0;
+  user-select: none;
 
   &:hover {
     color: $accent-blue;
@@ -91,7 +124,54 @@
   min-width: 0;
 }
 
+.checkbox {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+
+  &.completed {
+    .checkboxInner {
+      border-color: $accent-blue;
+      background: $accent-blue;
+      color: $text-on-color;
+    }
+  }
+}
+
+.checkboxInner {
+  width: 15px;
+  height: 15px;
+  border: 1px solid $border-default;
+  border-radius: $radius-xs;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: $bg-primary;
+}
+
+.progressCounter {
+  display: flex;
+  width: fit-content;
+  font-size: $font-s;
+  color: $text-secondary;
+  padding: 2px 8px;
+  border: 1px solid $border-default;
+  border-radius: $radius-full;
+  background: $bg-secondary;
+  font-family: $font-mono;
+  font-weight: 400;
+}
+
 .main {
   flex: 1;
   overflow-y: auto;
+  padding: 20px 30px;
 }

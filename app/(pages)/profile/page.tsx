@@ -216,7 +216,7 @@ export default function ProfilePage() {
         </form>
       </div>
 
-      <Button fullWidth variant="secondary" onClick={handleSignOut}>
+      <Button variant="secondary" onClick={handleSignOut}>
         Выйти из аккаунта
       </Button>
 

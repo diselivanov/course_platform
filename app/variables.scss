@@ -1,19 +1,19 @@
-$text-primary: hsl(215, 15%, 6%);
+$text-primary: hsl(215, 15%, 12%);
 $text-secondary: hsl(215, 15%, 22%);
 $text-tertiary: hsl(215, 15%, 40%);
 $text-on-color: #fff;
 
 $bg-primary: #fff;
-$bg-secondary: hsl(215, 20%, 97%);
-$bg-tertiary: hsl(215, 18%, 94%);
+$bg-secondary: hsl(215, 15%, 97%);
+$bg-tertiary: hsl(215, 15%, 94%);
 
 $icon-default: hsl(215, 15%, 65%);
-$border-default: hsl(215, 15%, 90%);
-$border-light: hsl(215, 15%, 94%);
+$border-default: hsl(215, 15%, 92%);
+$border-light: hsl(215, 15%, 89%);
 
 $accent-blue: hsl(210, 100%, 45%);
 $accent-blue-hover: hsl(210, 100%, 38%);
-$accent-blue-light: hsl(210, 100%, 45%, 0.1);
+$accent-blue-light: hsla(210, 100%, 45%, 0.1);
 
 $accent-red: hsl(355, 98%, 66%);
 $accent-red-light: hsla(355, 98%, 66%, 0.1);
@@ -21,16 +21,17 @@ $accent-red-light: hsla(355, 98%, 66%, 0.1);
 $accent-green: hsl(144, 72%, 37%);
 $accent-green-light: hsla(144, 72%, 37%, 0.1);
 
-$accent-orange: #f59e0b;
-$accent-orange-light: rgba(245, 158, 11, 0.1);
+$accent-orange: hsl(48, 100%, 44%);
+$accent-orange-light: hsla(48, 100%, 44%, 0.1);
 
-$overlay-dark: rgba(0, 0, 0, 0.25);
+$overlay: rgba(0, 0, 0, 0.25);
+$glass: rgba(0, 0, 0, 0.75);
 
 $shadow-card: 0 4px 16px rgba(0, 0, 0, 0.1);
 
 $radius-xs: 4px;
 $radius-s: 8px;
-$radius-m: 10px;
+$radius-m: 12px;
 $radius-full: 999px;
 
 $font-xl: 20px;
@@ -45,9 +46,9 @@ $font-mono:
 
 $control-height-m: 36px;
 $control-height-s: 28px;
+
 $header-height: 50px;
 $sidebar-width: 280px;
 
-$avatar-s: 36px;
-$avatar-m: 46px;
-$avatar-l: 80px;
+$form-width-s: 320px;
+$form-width-m: 480px;

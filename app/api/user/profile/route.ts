@@ -9,10 +9,7 @@ export async function GET() {
   const session = await getSession();
 
   if (!session) {
-    return NextResponse.json(
-      { success: false, error: 'Необходима авторизация' },
-      { status: 401 }
-    );
+    return NextResponse.json({ success: false, error: 'Необходима авторизация' }, { status: 401 });
   }
 
   try {
@@ -26,11 +23,7 @@ export async function GET() {
 
     return NextResponse.json({ success: true, data: user });
   } catch (error) {
-    console.error('Get profile error:', error);
-    return NextResponse.json(
-      { success: false, error: 'Ошибка загрузки профиля' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Ошибка загрузки профиля' }, { status: 500 });
   }
 }
 
@@ -38,10 +31,7 @@ export async function PUT(request: NextRequest) {
   const session = await getSession();
 
   if (!session) {
-    return NextResponse.json(
-      { success: false, error: 'Необходима авторизация' },
-      { status: 401 }
-    );
+    return NextResponse.json({ success: false, error: 'Необходима авторизация' }, { status: 401 });
   }
 
   try {
@@ -81,10 +71,7 @@ export async function PUT(request: NextRequest) {
     }
 
     if (newPassword) {
-      const isPasswordValid = await bcrypt.compare(
-        currentPassword,
-        user.password
-      );
+      const isPasswordValid = await bcrypt.compare(currentPassword, user.password);
 
       if (!isPasswordValid) {
         return NextResponse.json(
@@ -103,7 +90,6 @@ export async function PUT(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error('Update profile error:', error);
     return NextResponse.json(
       { success: false, error: 'Ошибка обновления профиля' },
       { status: 500 }

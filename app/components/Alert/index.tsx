@@ -1,6 +1,14 @@
 'use client';
 
-import { createContext, useContext, useState, useCallback, ReactNode, useEffect, useRef } from 'react';
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  ReactNode,
+  useEffect,
+  useRef,
+} from 'react';
 import Icon from '../Icon';
 import styles from './index.module.scss';
 
@@ -39,10 +47,12 @@ const ICON_MAP: Record<AlertType, ReactNode> = {
 export function AlertProvider({ children }: AlertProviderProps) {
   const [alert, setAlert] = useState<AlertItem | null>(null);
   const [isExiting, setIsExiting] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const clearAlert = useCallback(() => {
     setIsExiting(true);
+    setIsVisible(false);
     timeoutRef.current = setTimeout(() => {
       setAlert(null);
       setIsExiting(false);
@@ -56,14 +66,31 @@ export function AlertProvider({ children }: AlertProviderProps) {
         timeoutRef.current = null;
       }
 
+      // Сначала скрываем текущий алерт
+      if (alert) {
+        setIsExiting(true);
+        setIsVisible(false);
+        setTimeout(() => {
+          setAlert({ id: Date.now().toString(), type, message });
+          setIsExiting(false);
+          setIsVisible(true);
+
+          timeoutRef.current = setTimeout(() => {
+            clearAlert();
+          }, 5000);
+        }, 300);
+        return;
+      }
+
       setAlert({ id: Date.now().toString(), type, message });
+      setIsVisible(true);
       setIsExiting(false);
 
       timeoutRef.current = setTimeout(() => {
         clearAlert();
       }, 5000);
     },
-    [clearAlert]
+    [alert, clearAlert]
   );
 
   useEffect(() => {

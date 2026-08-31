@@ -7,6 +7,7 @@ import { DiffViewModeProvider } from './DiffViewControls';
 import DiffViewControls from './DiffViewControls';
 import Link from 'next/link';
 import styles from './page.module.scss';
+import { notFound } from 'next/navigation';
 
 interface CoursePageProps {
   params: Promise<{ courseSlug: string }>;
@@ -34,7 +35,7 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
   });
 
   if (!course) {
-    return <div>Курс не найден</div>;
+    return notFound();
   }
 
   const selectedLesson = lessonSlug ? course.lessons.find(l => l.slug === lessonSlug) : null;
@@ -73,7 +74,6 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
         {!selectedLesson ? (
           <>
             <h1 className={styles.title}>{course.title}</h1>
-            <div className={styles.meta}>Уроков: {course.lessons.length}</div>
 
             <VideoPlayer youtubeUrl={course.youtubeUrl} vkUrl={course.vkUrl} />
 
@@ -85,9 +85,11 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
         ) : (
           <>
             <div className={styles.lessonHeader}>
-              <h1 className={styles.lessonTitle}>{selectedLesson.title}</h1>
+              <h1 className={styles.lessonTitle}>
+                Урок {selectedLesson.number}: {selectedLesson.title}
+              </h1>
               <Link href={`/course/${courseSlug}`} className={styles.courseLink}>
-                {course.title}
+                Курс: {course.title}
               </Link>
             </div>
 

@@ -18,10 +18,6 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url));
   }
 
-  if (pathname.startsWith('/admin') && (!isAuth || !isAdmin)) {
-    return NextResponse.redirect(new URL('/', request.url));
-  }
-
   const protectedPatterns = [
     /^\/course\/create$/,
     /^\/course\/[^\/]+\/edit$/,

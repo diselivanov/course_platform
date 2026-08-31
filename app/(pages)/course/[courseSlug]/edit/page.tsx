@@ -114,12 +114,14 @@ export default function EditCoursePage({ params }: EditCoursePageProps) {
         />
         <Input label="YouTube" {...register('youtubeUrl')} error={errors.youtubeUrl?.message} />
         <Input label="VK Видео" {...register('vkUrl')} error={errors.vkUrl?.message} />
-        <Button type="submit" fullWidth loading={isSubmitting}>
-          Сохранить
-        </Button>
-        <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
-          Отмена
-        </Button>
+        <div className={styles.actions}>
+          <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
+            Отмена
+          </Button>
+          <Button type="submit" fullWidth loading={isSubmitting}>
+            Сохранить
+          </Button>
+        </div>
       </form>
     </div>
   );

@@ -2,7 +2,7 @@
 
 .container {
   position: fixed;
-  top: 10px;
+  top: calc($header-height + 10px);
   right: 24px;
   z-index: 9999;
   pointer-events: none;
@@ -20,7 +20,7 @@
   padding: 0 14px;
   height: $control-height-m;
   border-radius: $radius-s;
-  background: $overlay-dark;
+  background: $glass;
   font-size: $font-m;
   color: $text-on-color;
   pointer-events: auto;

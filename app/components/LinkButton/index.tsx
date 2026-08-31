@@ -6,7 +6,7 @@ interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children: ReactNode;
   href: string;
   fullWidth?: boolean;
-  variant?: 'primary' | 'secondary' | 'simple';
+  variant?: 'primary' | 'secondary';
   size?: 'default' | 'small';
 }
 

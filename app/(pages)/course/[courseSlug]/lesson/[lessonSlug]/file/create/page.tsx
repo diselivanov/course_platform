@@ -88,12 +88,14 @@ export default function CreateFilePage({ params }: CreateFilePageProps) {
         </div>
         <Textarea label="Старый код" {...register('oldCode')} error={errors.oldCode?.message} />
         <Textarea label="Новый код" {...register('newCode')} error={errors.newCode?.message} />
-        <Button type="submit" fullWidth loading={isSubmitting}>
-          Создать
-        </Button>
-        <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
-          Отмена
-        </Button>
+        <div className={styles.actions}>
+          <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
+            Отмена
+          </Button>
+          <Button type="submit" fullWidth loading={isSubmitting}>
+            Сохранить
+          </Button>
+        </div>
       </form>
     </div>
   );

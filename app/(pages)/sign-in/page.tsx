@@ -17,7 +17,6 @@ export default function SignInPage() {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    setError,
   } = useForm<SignInFormData>({
     resolver: zodResolver(signInSchema),
   });
@@ -51,7 +50,12 @@ export default function SignInPage() {
 
         <Input label="Email" type="email" error={errors.email?.message} {...register('email')} />
 
-        <Input label="Пароль" type="password" error={errors.password?.message} {...register('password')} />
+        <Input
+          label="Пароль"
+          type="password"
+          error={errors.password?.message}
+          {...register('password')}
+        />
 
         <Button type="submit" fullWidth loading={isSubmitting}>
           Войти

@@ -5,21 +5,34 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-}   
+}
 
 model User {
-  id          String   @id @default(cuid())
-  email       String   @unique
-  password    String
-  name        String
-  role        Role     @default(USER)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id             String         @id @default(cuid())
+  email          String         @unique
+  password       String
+  name           String
+  role           Role           @default(USER)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  userProgresses UserProgress[]
 }
 
 enum Role {
   USER
   ADMIN
+}
+
+model UserProgress {
+  id        String   @id @default(cuid())
+  userId    String
+  lessonId  String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson    Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@index([userId])
 }
 
 model Course {
@@ -39,34 +52,35 @@ model Course {
 }
 
 model Lesson {
-  id           String   @id @default(cuid())
-  number       Int
-  title        String
-  slug         String
-  youtubeUrl   String?
-  vkUrl        String?
-  description  String?  @db.LongText
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  courseId     String
-  course       Course   @relation(fields: [courseId], references: [id])
-  files        LessonFile[]
+  id             String         @id @default(cuid())
+  number         Int
+  title          String
+  slug           String
+  youtubeUrl     String?
+  vkUrl          String?
+  description    String?        @db.LongText
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  courseId       String
+  course         Course         @relation(fields: [courseId], references: [id])
+  files          LessonFile[]
+  userProgresses UserProgress[]
 
   @@unique([courseId, slug])
   @@index([courseId, number])
 }
 
 model LessonFile {
-  id        String   @id @default(cuid())
+  id        String     @id @default(cuid())
   number    Int
   title     String
   status    FileStatus
-  oldCode   String?   @db.LongText
-  newCode   String?   @db.LongText
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  oldCode   String?    @db.LongText
+  newCode   String?    @db.LongText
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
   lessonId  String
-  lesson    Lesson   @relation(fields: [lessonId], references: [id])
+  lesson    Lesson     @relation(fields: [lessonId], references: [id])
 
   @@index([lessonId, number])
 }

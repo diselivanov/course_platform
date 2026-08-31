@@ -2,9 +2,9 @@ import { z } from 'zod';
 
 export const signUpSchema = z
   .object({
-    name: z.string().min(3, 'Некорректное имя').max(32, 'Некорректное имя'),
-    email: z.string().email('Некорректный email'),
-    password: z.string().min(5, 'Некорректный пароль').max(200, 'Некорректный пароль'),
+    name: z.string().min(3).max(32),
+    email: z.string().email(),
+    password: z.string().min(5).max(200),
     confirmPassword: z.string(),
   })
   .refine(data => data.password === data.confirmPassword, {
@@ -13,21 +13,21 @@ export const signUpSchema = z
   });
 
 export const signInSchema = z.object({
-  email: z.string().email('Некорректный email'),
-  password: z.string().min(5, 'Некорректный пароль').max(200, 'Некорректный пароль'),
+  email: z.string().email(),
+  password: z.string().min(5).max(200),
 });
 
 export const updateProfileSchema = {
   name: z.object({
-    name: z.string().min(3, 'Некорректное имя').max(32, 'Некорректное имя'),
+    name: z.string().min(3).max(32),
   }),
   email: z.object({
-    email: z.string().email('Некорректный email'),
+    email: z.string().email(),
   }),
   password: z
     .object({
-      currentPassword: z.string().min(5, 'Некорректный пароль'),
-      newPassword: z.string().min(5, 'Некорректный пароль').max(200, 'Некорректный пароль'),
+      currentPassword: z.string().min(5),
+      newPassword: z.string().min(5).max(200),
       confirmPassword: z.string(),
     })
     .refine(data => data.newPassword === data.confirmPassword, {

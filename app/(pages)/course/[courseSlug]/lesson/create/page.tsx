@@ -83,12 +83,14 @@ export default function CreateLessonPage({ params }: CreateLessonPageProps) {
           {...register('description')}
           error={errors.description?.message}
         />
-        <Button type="submit" fullWidth loading={isSubmitting}>
-          Создать
-        </Button>
-        <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
-          Отмена
-        </Button>
+        <div className={styles.actions}>
+          <Button type="button" fullWidth variant="secondary" onClick={handleCancel}>
+            Отмена
+          </Button>
+          <Button type="submit" fullWidth loading={isSubmitting}>
+            Сохранить
+          </Button>
+        </div>
       </form>
     </div>
   );

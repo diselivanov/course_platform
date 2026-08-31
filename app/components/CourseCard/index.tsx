@@ -1,9 +1,9 @@
-import Link from 'next/link';
+import LinkButton from '../LinkButton';
+import Icon from '../Icon';
 import styles from './index.module.scss';
 
 interface CourseCardProps {
   id: string;
-  number: number;
   title: string;
   slug: string;
   shortDescription: string;
@@ -17,16 +17,15 @@ export default function CourseCard({
   lessonsCount,
 }: CourseCardProps) {
   return (
-    <Link href={`/course/${slug}`} className={styles.card}>
+    <div className={styles.card}>
       <h3 className={styles.title}>{title}</h3>
       <p className={styles.description}>{shortDescription}</p>
       <div className={styles.footer}>
         <span className={styles.lessonsCount}>Уроков: {lessonsCount}</span>
+        <LinkButton href={`/course/${slug}`}>
+          Перейти <Icon name="arrow_right" size={14} />
+        </LinkButton>
       </div>
-      <svg className={styles.glowContainer}>
-        <rect pathLength="100" strokeLinecap="round" className={styles.glowBlur} />
-        <rect pathLength="100" strokeLinecap="round" className={styles.glowLine} />
-      </svg>
-    </Link>
+    </div>
   );
 }

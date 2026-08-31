@@ -2,8 +2,7 @@
 @use '@/app/mixins.scss' as *;
 
 .container {
-  max-width: 600px;
-  padding: 20px;
+  max-width: $form-width-m;
 }
 
 .title {
@@ -37,4 +36,9 @@
 .errorText {
   font-size: $font-s;
   color: $accent-red;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
 }
