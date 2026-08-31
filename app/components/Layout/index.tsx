@@ -6,6 +6,7 @@ import styles from './index.module.scss';
 import ClientLayout from './ClientLayout';
 import Icon from '../Icon';
 import ThemeToggle from '../ThemeToggle';
+import Search from '../Search';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,15 +27,8 @@ export default async function Layout({ children }: LayoutProps) {
               </Link>
             </div>
             <div className={styles.navActions}>
-              <button className={styles.actionButton}>
-                <Icon name="search" size={14} />
-                <span>Поиск</span>
-              </button>
+              <Search />
               <ThemeToggle />
-              <button className={styles.actionButton}>
-                <Icon name="language" size={16} />
-                <span>Язык</span>
-              </button>
             </div>
             <nav className={styles.nav}>
               <ClientLayout isAuth={isAuth} />

@@ -24,6 +24,7 @@
     "react-hook-form": "^7.84.0",
     "react-intersection-observer": "^11.0.0",
     "server-only": "^0.0.1",
+    "use-debounce": "^10.1.1",
     "zod": "^4.4.3"
   },
   "devDependencies": {

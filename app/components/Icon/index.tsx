@@ -12,8 +12,7 @@ interface IconProps extends SVGProps<SVGSVGElement> {
     | 'success'
     | 'error'
     | 'light_mode'
-    | 'dark_mode'
-    | 'language';
+    | 'dark_mode';
   size?: number;
 }
 
@@ -119,19 +118,6 @@ const icons = {
       <path
         fill="currentColor"
         d="M9.37 5.51c-.18.64-.27 1.31-.27 1.99 0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27C17.45 17.19 14.93 19 12 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1"
-      />
-    ),
-  },
-  language: {
-    viewBox: '0 0 24 24',
-    children: (
-      <path
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        d="m10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a49 49 0 0 1 6-.371m0 0q1.681 0 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138q1.344.092 2.666.257m-4.589 8.495a18 18 0 0 1-3.827-5.802"
       />
     ),
   },

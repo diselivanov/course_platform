@@ -122,8 +122,7 @@
   :global(.diff-line-content-text .property),
   :global(.diff-line-content-text .class-name),
   :global(.diff-line-content-text .punctuation) {
-    font-size: $font-s !important;
+    font-size: 11px !important;
     font-family: $font-mono !important;
-    font-weight: 500;
   }
 }

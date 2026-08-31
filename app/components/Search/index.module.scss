@@ -1,0 +1,144 @@
+@use '@/app/variables.scss' as *;
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: $radius-s;
+  background: $bg-secondary;
+  color: $text-secondary;
+  cursor: pointer;
+  font-size: $font-s;
+  font-family: inherit;
+
+  &:hover {
+    background: $bg-tertiary;
+    color: $text-primary;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: $overlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
+
+.modal {
+  width: 500px;
+  max-height: 480px;
+  background: $bg-primary;
+  border-radius: $radius-m;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-default;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $border-default;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $text-tertiary;
+}
+
+.input {
+  width: 100%;
+
+  padding: 12px 14px 12px 40px;
+  font-size: $font-m;
+  border: none;
+  border-radius: $radius-s;
+  background: none;
+  color: $text-primary;
+  outline: none;
+  font-family: inherit;
+}
+
+.results {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 10px;
+  gap: 4px;
+}
+
+.resultItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: $radius-s;
+  cursor: pointer;
+  text-decoration: none;
+  color: $text-primary;
+  background: $bg-secondary;
+
+  &:hover {
+    background: $bg-tertiary;
+  }
+}
+
+.resultCourse {
+  font-size: $font-s;
+  color: $text-secondary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resultTitle {
+  font-size: $font-s;
+  color: $text-tertiary;
+  font-family: $font-mono;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.highlight {
+  color: $accent-blue;
+}
+
+.resultDescription {
+  font-size: $font-s;
+  color: $text-tertiary;
+  font-family: $font-mono;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: $font-s;
+  color: $text-tertiary;
+  padding: 10px;
+}
