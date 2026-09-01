@@ -7,7 +7,6 @@ interface LinkButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string;
   fullWidth?: boolean;
   variant?: 'primary' | 'secondary';
-  size?: 'default' | 'small';
   rounded?: 'default' | 'full';
 }
 
@@ -16,7 +15,7 @@ export default function LinkButton({
   href,
   fullWidth,
   variant = 'primary',
-  size = 'default',
+
   rounded = 'default',
   className,
   ...props
@@ -24,7 +23,7 @@ export default function LinkButton({
   return (
     <Link
       href={href}
-      className={`${styles.button} ${styles[variant]} ${styles[size]} ${
+      className={`${styles.button} ${styles[variant]}${
         fullWidth ? styles.fullWidth : ''
       } ${styles[`rounded-${rounded}`]} ${className || ''}`}
       {...props}

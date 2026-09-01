@@ -45,27 +45,17 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
       <div className={styles.container}>
         {isAdmin && !selectedLesson && (
           <div className={styles.adminActions}>
-            <LinkButton href={`/course/${courseSlug}/edit`} size="small">
-              Править курс
-            </LinkButton>
-            <LinkButton href={`/course/${courseSlug}/lesson/create`} size="small">
-              Создать урок
-            </LinkButton>
+            <LinkButton href={`/course/${courseSlug}/edit`}>Править курс</LinkButton>
+            <LinkButton href={`/course/${courseSlug}/lesson/create`}>Создать урок</LinkButton>
           </div>
         )}
 
         {isAdmin && selectedLesson && (
           <div className={styles.adminActions}>
-            <LinkButton
-              href={`/course/${courseSlug}/lesson/${selectedLesson.slug}/edit`}
-              size="small"
-            >
+            <LinkButton href={`/course/${courseSlug}/lesson/${selectedLesson.slug}/edit`}>
               Править урок
             </LinkButton>
-            <LinkButton
-              href={`/course/${courseSlug}/lesson/${selectedLesson.slug}/file/create`}
-              size="small"
-            >
+            <LinkButton href={`/course/${courseSlug}/lesson/${selectedLesson.slug}/file/create`}>
               Создать файл
             </LinkButton>
           </div>

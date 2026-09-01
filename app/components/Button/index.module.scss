@@ -20,21 +20,6 @@
     opacity: 0.5;
     pointer-events: none;
   }
-
-  &.rounded-default {
-    border-radius: $radius-s;
-  }
-
-  &.rounded-full {
-    border-radius: $radius-full;
-  }
-}
-
-.small {
-  min-height: $control-height-s;
-  font-size: $font-s;
-  padding: 0 14px;
-  border-radius: $radius-s;
 }
 
 .primary {

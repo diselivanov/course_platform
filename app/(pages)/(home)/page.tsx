@@ -20,11 +20,7 @@ export default async function HomePage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>Курсы</h1>
-        {isAdmin && (
-          <LinkButton href="/course/create" size="small">
-            Создать курс
-          </LinkButton>
-        )}
+        {isAdmin && <LinkButton href="/course/create">Создать курс</LinkButton>}
       </div>
 
       {courses.length === 0 ? (

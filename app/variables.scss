@@ -12,16 +12,16 @@ $border-default: var(--border-default, hsl(215, 15%, 92%));
 
 $accent-blue: hsl(208, 97%, 49%);
 $accent-blue-hover: hsl(212, 94%, 59%);
-$accent-blue-light: var(--accent-blue-light, hsla(208, 97%, 49%, 0.12));
+$accent-blue-light: var(--accent-blue-light, hsla(208, 97%, 49%, 0.14));
 
 $accent-red: hsl(355, 98%, 66%);
-$accent-red-light: var(--accent-red-light, hsla(355, 98%, 66%, 0.12));
+$accent-red-light: var(--accent-red-light, hsla(355, 98%, 66%, 0.14));
 
 $accent-green: hsl(144, 72%, 37%);
-$accent-green-light: var(--accent-green-light, hsla(144, 72%, 37%, 0.12));
+$accent-green-light: var(--accent-green-light, hsla(144, 72%, 37%, 0.14));
 
 $accent-orange: hsl(48, 100%, 44%);
-$accent-orange-light: var(--accent-orange-light, hsla(48, 100%, 44%, 0.12));
+$accent-orange-light: var(--accent-orange-light, hsla(48, 100%, 44%, 0.14));
 
 $overlay: var(--overlay, rgba(0, 0, 0, 0.25));
 
@@ -40,11 +40,10 @@ $font-mono:
   SF Mono,
   monospace;
 
-$control-height-m: 36px;
-$control-height-s: 28px;
+$control-height-m: 34px;
 
 $header-height: 50px;
-$sidebar-width: 280px;
+$sidebar-width: 260px;
 
 $form-width-s: 320px;
 $form-width-m: 480px;

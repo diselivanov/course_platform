@@ -51,7 +51,6 @@ export default function ThemeToggle() {
   return (
     <button className={styles.button} onClick={toggleTheme}>
       <Icon name={theme === 'light' ? 'light_mode' : 'dark_mode'} size={16} />
-      <span>{theme === 'light' ? 'Свет' : 'Тьма'}</span>
     </button>
   );
 }

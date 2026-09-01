@@ -9,6 +9,7 @@ import Icon from '../Icon';
 import ConfirmModal from '../ConfirmModal';
 import { useAlert } from '../Alert';
 import { useDiffViewMode } from '@/app/(pages)/course/[courseSlug]/DiffViewControls';
+import { useTheme } from '../ThemeToggle';
 import styles from './index.module.scss';
 
 interface DiffViewProps {
@@ -36,6 +37,7 @@ export default function DiffView({
   const router = useRouter();
   const { showAlert } = useAlert();
   const { viewMode } = useDiffViewMode();
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(true);
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
 
@@ -48,7 +50,7 @@ export default function DiffView({
     'typescript'
   );
 
-  diffFile.initTheme('light');
+  diffFile.initTheme(theme === 'dark' ? 'dark' : 'light');
   diffFile.init();
   diffFile.buildSplitDiffLines();
   diffFile.buildUnifiedDiffLines();
@@ -117,7 +119,7 @@ export default function DiffView({
           <GitDiffView
             diffFile={diffFile}
             diffViewMode={viewMode}
-            diffViewTheme="dark"
+            diffViewTheme={theme === 'dark' ? 'dark' : 'light'}
             diffViewHighlight
           />
         </div>

@@ -3,11 +3,13 @@
 .button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  justify-content: center;
+  padding: 0;
+  height: 28px;
+  width: 28px;
   border: none;
-  border-radius: $radius-s;
-  background: $bg-secondary;
+  border-radius: $radius-full;
+  background: none;
   color: $text-secondary;
   cursor: pointer;
   font-size: $font-s;

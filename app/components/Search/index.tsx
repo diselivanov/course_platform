@@ -152,17 +152,20 @@ export default function Search() {
     router.push(href);
   };
 
+  const hasQuery = debouncedQuery && debouncedQuery.trim().length > 0;
+
   return (
     <>
       <button className={styles.searchButton} onClick={() => setIsOpen(true)}>
         <Icon name="search" size={14} />
-        <span>Поиск</span>
       </button>
 
       {isOpen && (
         <div className={styles.overlay} onClick={handleOverlayClick}>
           <div className={styles.modal}>
-            <div className={styles.inputWrapper}>
+            <div
+              className={`${styles.inputWrapper} ${hasQuery ? styles.inputWrapperWithResults : ''}`}
+            >
               <span className={styles.inputIcon}>
                 <Icon name="search" size={16} />
               </span>
@@ -175,33 +178,25 @@ export default function Search() {
                 onChange={e => setQuery(e.target.value)}
               />
             </div>
-            <div className={styles.results}>
-              {!debouncedQuery || debouncedQuery.trim().length === 0 ? (
-                <div className={styles.empty}>Начните печатать чтобы начать поиск</div>
-              ) : results.length === 0 ? (
+            <div className={`${styles.results} ${hasQuery ? styles.resultsVisible : ''}`}>
+              {hasQuery && results.length === 0 && (
                 <div className={styles.empty}>По вашему запросу ничего не найдено</div>
-              ) : (
-                results.map(result => (
-                  <Link
-                    key={result.id}
-                    href={`/course/${result.course.slug}?lesson=${result.slug}`}
-                    className={styles.resultItem}
-                    onClick={() =>
-                      handleResultClick(`/course/${result.course.slug}?lesson=${result.slug}`)
-                    }
-                  >
-                    <span className={styles.resultCourse}>Курс: {result.course.title}</span>
-                    <span className={styles.resultTitle}>
-                      Урок {result.number}: {highlightText(result.title, debouncedQuery)}
-                    </span>
-                    {result.description && (
-                      <span className={styles.resultDescription}>
-                        {getHighlightedSnippet(result.description, debouncedQuery, 70)}
-                      </span>
-                    )}
-                  </Link>
-                ))
               )}
+              {results.map(result => (
+                <Link
+                  key={result.id}
+                  href={`/course/${result.course.slug}?lesson=${result.slug}`}
+                  className={styles.resultItem}
+                  onClick={() =>
+                    handleResultClick(`/course/${result.course.slug}?lesson=${result.slug}`)
+                  }
+                >
+                  <span className={styles.resultCourse}>Курс: {result.course.title}</span>
+                  <span className={styles.resultTitle}>
+                    {getHighlightedSnippet(` ${result.title}`, debouncedQuery, 60)}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

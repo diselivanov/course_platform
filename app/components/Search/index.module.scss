@@ -3,11 +3,13 @@
 .searchButton {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  justify-content: center;
+  padding: 0;
+  height: 28px;
+  width: 28px;
   border: none;
-  border-radius: $radius-s;
-  background: $bg-secondary;
+  border-radius: $radius-full;
+  background: none;
   color: $text-secondary;
   cursor: pointer;
   font-size: $font-s;
@@ -33,26 +35,35 @@
   z-index: 9999;
   background: $overlay;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  padding-top: 80px;
   backdrop-filter: blur(3px);
 }
 
 .modal {
   width: 500px;
-  max-height: 480px;
+  max-height: 440px;
   background: $bg-primary;
   border-radius: $radius-m;
   display: flex;
   flex-direction: column;
-  border: 1px solid $border-default;
+  overflow: hidden;
 }
 
 .inputWrapper {
   position: relative;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid $border-default;
+  border-bottom: 1px solid transparent;
+  border-radius: $radius-m;
+
+  flex-shrink: 0;
+}
+
+.inputWrapperWithResults {
+  border-bottom-color: $border-default;
+  border-radius: $radius-m $radius-m 0 0;
 }
 
 .inputIcon {
@@ -66,24 +77,33 @@
 
 .input {
   width: 100%;
-
   padding: 12px 14px 12px 40px;
   font-size: $font-m;
   border: none;
-  border-radius: $radius-s;
+  border-radius: $radius-m;
   background: none;
   color: $text-primary;
   outline: none;
   font-family: inherit;
 }
 
+.inputWrapperWithResults .input {
+  border-radius: $radius-m $radius-m 0 0;
+}
+
 .results {
   flex: 1;
   overflow-y: auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   min-height: 0;
   padding: 10px;
+  border-radius: 0 0 $radius-m $radius-m;
+  background: $bg-primary;
+}
+
+.resultsVisible {
+  display: flex;
 }
 
 .resultItem {
@@ -112,7 +132,6 @@
 .resultTitle {
   font-size: $font-s;
   color: $text-tertiary;
-  font-family: $font-mono;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -120,15 +139,6 @@
 
 .highlight {
   color: $accent-blue;
-}
-
-.resultDescription {
-  font-size: $font-s;
-  color: $text-tertiary;
-  font-family: $font-mono;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .empty {
