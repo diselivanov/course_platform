@@ -2,7 +2,47 @@
 
 .container {
   display: flex;
+  flex-direction: column;
   height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $header-height;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  background: $bg-primary;
+  border-bottom: 1px solid $border-default;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-size: $font-xl;
+  font-weight: 600;
+  color: $text-primary;
+  text-decoration: none;
+  user-select: none;
+
+  &:hover {
+    color: $accent-blue;
+  }
 }
 
 .sidebar {
@@ -19,7 +59,8 @@
     opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   min-width: 0;
-  height: 100vh;
+  height: calc(100vh - $header-height);
+  margin-top: $header-height;
 
   &.collapsed {
     transform: translateX(-100%);
@@ -35,36 +76,28 @@
   }
 }
 
+.layoutWithSidebar {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
 .sidebarHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 10px 10px 20px;
+  padding: 8px 8px 8px 10px;
   flex-shrink: 0;
 }
 
-.logo {
-  font-size: $font-xl;
-  font-weight: 600;
-  color: $text-primary;
-  user-select: none;
-  flex-shrink: 0;
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .win {
-    color: $text-primary;
-  }
-
-  .code {
-    color: $accent-blue;
-    background: $accent-blue-light;
-    padding: 0 2px 0 0;
-    border-right: 1px solid $accent-blue;
-  }
+.sidebarActions {
+  display: flex;
+  align-items: center;
+  border: 1px solid $border-default;
+  border-radius: $radius-full;
+  padding: 2px;
+  background: $bg-primary;
+  gap: 2px;
 }
 
 .navActions {
@@ -84,7 +117,7 @@
 
 .floatingNavActions {
   position: fixed;
-  top: 10px;
+  top: calc($header-height + 10px);
   left: 10px;
   z-index: 100;
   display: flex;
@@ -138,37 +171,10 @@
   }
 }
 
-.actionButton {
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  gap: 8px;
-  border: none;
-  border-radius: $radius-s;
-  background: $bg-secondary;
-  color: $text-secondary;
-  cursor: pointer;
-  font-size: $font-s;
-  font-family: inherit;
-
-  &:hover {
-    background: $bg-tertiary;
-    color: $text-primary;
-  }
-
-  svg {
-    flex-shrink: 0;
-  }
-
-  span {
-    white-space: nowrap;
-  }
-}
-
 .nav {
   flex: 1;
   overflow-y: auto;
-  padding: 10px 10px 50px 10px;
+  padding: 0 10px 50px 10px;
   min-height: 0;
 }
 
@@ -237,24 +243,6 @@
   }
 }
 
-.navLink {
-  display: flex;
-  align-items: center;
-  padding: 6px 10px;
-  color: $text-secondary;
-  font-size: $font-m;
-  text-decoration: none;
-  border-radius: $radius-s;
-  width: 100%;
-  min-width: 0;
-  user-select: none;
-
-  &:hover {
-    color: $accent-blue;
-    text-decoration: underline;
-  }
-}
-
 .linkText {
   display: block;
   white-space: nowrap;
@@ -288,7 +276,7 @@
 .checkboxInner {
   width: 15px;
   height: 15px;
-  border: 1px solid $border-default;
+  border: 1.5px solid $border-default;
   border-radius: $radius-xs;
   display: flex;
   align-items: center;
@@ -304,11 +292,13 @@
   overflow-y: auto;
   min-width: 0;
   transition: margin-left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: $header-height;
+  height: calc(100vh - $header-height);
 }
 
 .mainContent {
   flex: 1;
-  padding: 20px 30px;
+  padding: 20px;
   max-width: 1040px;
   margin: 0 auto;
   width: 100%;
@@ -316,14 +306,19 @@
 
 .footer {
   flex-shrink: 0;
-  padding: 20px 30px;
+  padding: 20px;
   border-top: 1px solid $border-default;
   font-size: $font-s;
   color: $text-tertiary;
   text-align: center;
 }
 
-.searchWrapper {
-  display: flex;
-  align-items: center;
+@media (max-width: $breakpoint-mobile) {
+  .header {
+    padding: 0 10px;
+  }
+
+  .mainContent {
+    padding: 10px;
+  }
 }

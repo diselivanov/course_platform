@@ -19,6 +19,10 @@ interface SearchResult {
   };
 }
 
+interface SearchProps {
+  courseSlug?: string;
+}
+
 function highlightText(text: string, query: string) {
   if (!query || !text) return text;
   const index = text.toLowerCase().indexOf(query.toLowerCase());
@@ -85,7 +89,7 @@ function getHighlightedSnippet(text: string, query: string, maxLength: number) {
   );
 }
 
-export default function Search() {
+export default function Search({ courseSlug }: SearchProps) {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -116,7 +120,11 @@ export default function Search() {
 
     const fetchResults = async () => {
       try {
-        const response = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}`);
+        const params = new URLSearchParams({ q: debouncedQuery });
+        if (courseSlug) {
+          params.append('courseSlug', courseSlug);
+        }
+        const response = await fetch(`/api/search?${params.toString()}`);
         const result = await response.json();
         if (result.success) {
           setResults(result.data);
@@ -129,7 +137,7 @@ export default function Search() {
     };
 
     fetchResults();
-  }, [debouncedQuery, isOpen]);
+  }, [debouncedQuery, isOpen, courseSlug]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -180,7 +188,7 @@ export default function Search() {
             </div>
             <div className={`${styles.results} ${hasQuery ? styles.resultsVisible : ''}`}>
               {hasQuery && results.length === 0 && (
-                <div className={styles.empty}>По вашему запросу ничего не найдено</div>
+                <div className={styles.empty}>Ничего не найдено</div>
               )}
               {results.map(result => (
                 <Link
@@ -191,10 +199,14 @@ export default function Search() {
                     handleResultClick(`/course/${result.course.slug}?lesson=${result.slug}`)
                   }
                 >
-                  <span className={styles.resultCourse}>Курс: {result.course.title}</span>
                   <span className={styles.resultTitle}>
-                    {getHighlightedSnippet(` ${result.title}`, debouncedQuery, 60)}
+                    Урок {result.number}: {getHighlightedSnippet(result.title, debouncedQuery, 60)}
                   </span>
+                  {result.description && (
+                    <span className={styles.resultDescription}>
+                      {getHighlightedSnippet(result.description, debouncedQuery, 80)}
+                    </span>
+                  )}
                 </Link>
               ))}
             </div>

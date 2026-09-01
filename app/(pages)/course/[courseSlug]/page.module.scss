@@ -1,8 +1,8 @@
 @use '@/app/variables.scss' as *;
+@use '@/app/mixins.scss' as *;
 
 .title {
-  font-size: $font-xl;
-  font-weight: 600;
+  @include title;
   margin-bottom: 20px;
 }
 
@@ -30,9 +30,7 @@
 }
 
 .lessonTitle {
-  font-size: $font-xl;
-  font-weight: 600;
-  margin: 0;
+  @include title;
 }
 
 .section {

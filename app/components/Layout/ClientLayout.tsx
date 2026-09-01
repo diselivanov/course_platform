@@ -4,10 +4,9 @@ import Link from 'next/link';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
 import { useAlert } from '../Alert';
+import Search from '../Search';
 import styles from './index.module.scss';
 import Icon from '../Icon';
-import ThemeToggle from '../ThemeToggle';
-import Search from '../Search';
 
 interface ClientLayoutProps {
   isAuth: boolean;
@@ -30,10 +29,12 @@ export default function ClientLayout({ isAuth, children }: ClientLayoutProps) {
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [lessons, setLessons] = useState<Lesson[]>([]);
   const [completedIds, setCompletedIds] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [courseSlug, setCourseSlug] = useState<string | null>(null);
+  const mainRef = useRef<HTMLDivElement>(null);
 
   const showAlertRef = useRef(showAlert);
   useEffect(() => {
@@ -46,6 +47,18 @@ export default function ClientLayout({ isAuth, children }: ClientLayoutProps) {
     if (saved !== null) {
       setIsSidebarCollapsed(saved === 'true');
     }
+  }, []);
+
+  useEffect(() => {
+    const mainElement = mainRef.current;
+    if (!mainElement) return;
+
+    const handleScroll = () => {
+      setShowScrollTop(mainElement.scrollTop > 300);
+    };
+
+    mainElement.addEventListener('scroll', handleScroll);
+    return () => mainElement.removeEventListener('scroll', handleScroll);
   }, []);
 
   const loadData = async (slug: string) => {
@@ -75,7 +88,6 @@ export default function ClientLayout({ isAuth, children }: ClientLayoutProps) {
     setCourseSlug(slug);
 
     if (slug) {
-      router.refresh();
       loadData(slug);
     } else {
       setLessons([]);
@@ -124,85 +136,61 @@ export default function ClientLayout({ isAuth, children }: ClientLayoutProps) {
     });
   };
 
+  if (!isCoursePage) {
+    return (
+      <main className={styles.main} ref={mainRef}>
+        <div className={styles.mainContent}>{children}</div>
+        <footer className={styles.footer}>© 2026 Wincode</footer>
+      </main>
+    );
+  }
+
   return (
-    <>
+    <div className={styles.layoutWithSidebar}>
       <aside className={`${styles.sidebar} ${isSidebarCollapsed ? styles.collapsed : ''}`}>
         <div className={styles.sidebarHeader}>
-          <div className={styles.logo}>
-            <Link href="/">
-              <span className={styles.win}>Win</span>
-              <span className={styles.code}>code</span>
-            </Link>
-          </div>
-
-          <div className={styles.navActions}>
+          <span className={styles.sectionTitle}>УРОКИ</span>
+          <div className={styles.sidebarActions}>
+            <Search courseSlug={courseSlug || ''} />
             <button className={styles.toggleButton} onClick={toggleSidebar}>
               <Icon name="sidebar" size={14} />
             </button>
-            <Search />
-            <ThemeToggle />
           </div>
         </div>
 
         <nav className={styles.nav}>
-          {isCoursePage && (
-            <div className={styles.section}>
-              <div className={styles.sectionTitle}>
-                {lessons.length > 0 && <span className={styles.sectionCourse}>КУРС</span>}
-              </div>
-              {lessons.map(lesson => {
-                const isActive = lessonSlug === lesson.slug;
-                const isCompleted = completedIds.includes(lesson.id);
-
-                return (
-                  <div key={lesson.id} className={styles.linkWrapper}>
-                    <Link
-                      href={`/course/${courseSlug}?lesson=${lesson.slug}`}
-                      className={`${styles.link} ${isActive ? styles.active : ''}`}
-                    >
-                      <span className={styles.linkText}>
-                        {lesson.number}. {lesson.title}
-                      </span>
-                      {isAuth && (
-                        <button
-                          className={`${styles.checkbox} ${isCompleted ? styles.completed : ''}`}
-                          onClick={e => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            toggleProgress(lesson.id, isCompleted);
-                          }}
-                        >
-                          <div className={styles.checkboxInner}>
-                            {isCompleted ? <Icon name="check_mark" size={13} /> : null}
-                          </div>
-                        </button>
-                      )}
-                    </Link>
-                  </div>
-                );
-              })}
-            </div>
-          )}
           <div className={styles.section}>
-            <div className={styles.sectionTitle}>МЕНЮ</div>
-            <Link href="/" className={styles.navLink}>
-              <span className={styles.linkText}>Главная</span>
-            </Link>
-            {isAuth && (
-              <Link href="/profile" className={styles.navLink}>
-                <span className={styles.linkText}>Профиль</span>
-              </Link>
-            )}
-            {!isAuth && (
-              <>
-                <Link href="/sign-in" className={styles.navLink}>
-                  <span className={styles.linkText}>Войти</span>
-                </Link>
-                <Link href="/sign-up" className={styles.navLink}>
-                  <span className={styles.linkText}>Регистрация</span>
-                </Link>
-              </>
-            )}
+            {lessons.map(lesson => {
+              const isActive = lessonSlug === lesson.slug;
+              const isCompleted = completedIds.includes(lesson.id);
+
+              return (
+                <div key={lesson.id} className={styles.linkWrapper}>
+                  <Link
+                    href={`/course/${courseSlug}?lesson=${lesson.slug}`}
+                    className={`${styles.link} ${isActive ? styles.active : ''}`}
+                  >
+                    <span className={styles.linkText}>
+                      {lesson.number}. {lesson.title}
+                    </span>
+                    {isAuth && (
+                      <button
+                        className={`${styles.checkbox} ${isCompleted ? styles.completed : ''}`}
+                        onClick={e => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleProgress(lesson.id, isCompleted);
+                        }}
+                      >
+                        <div className={styles.checkboxInner}>
+                          {isCompleted ? <Icon name="check_mark" size={13} /> : null}
+                        </div>
+                      </button>
+                    )}
+                  </Link>
+                </div>
+              );
+            })}
           </div>
         </nav>
       </aside>
@@ -211,14 +199,12 @@ export default function ClientLayout({ isAuth, children }: ClientLayoutProps) {
           <button className={styles.toggleButton} onClick={toggleSidebar}>
             <Icon name="sidebar" size={14} />
           </button>
-          <Search />
-          <ThemeToggle />
         </div>
       )}
-      <main className={styles.main}>
+      <main className={styles.main} ref={mainRef}>
         <div className={styles.mainContent}>{children}</div>
         <footer className={styles.footer}>© 2026 Wincode</footer>
       </main>
-    </>
+    </div>
   );
 }

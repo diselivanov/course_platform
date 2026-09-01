@@ -2,8 +2,8 @@
 
 .container {
   position: fixed;
-  top: 20px;
-  right: 30px;
+  top: calc($header-height + 10px);
+  right: 20px;
   z-index: 9999;
   pointer-events: none;
   animation: slideIn 0.2s cubic-bezier(0.55, 0, 0.1, 1);
@@ -22,23 +22,17 @@
   border-radius: $radius-s;
   font-size: $font-m;
   pointer-events: auto;
-  border: 1px solid transparent;
+  border: 1px solid $border-default;
+  background: $bg-primary;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 
   &.error {
-    border-color: $accent-red-light;
-    color: $accent-red;
-    background: $accent-red-light;
-
     svg {
       color: $accent-red;
     }
   }
 
   &.success {
-    border-color: $accent-green-light;
-    color: $accent-green;
-    background: $accent-green-light;
-
     svg {
       color: $accent-green;
     }
@@ -64,7 +58,7 @@
 @keyframes slideIn {
   0% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
   60% {
     opacity: 1;
@@ -87,6 +81,6 @@
   }
   100% {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(20px);
   }
 }

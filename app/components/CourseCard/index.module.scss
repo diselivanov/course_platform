@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  gap: 12px;
   border: 1px solid $border-default;
   border-radius: $radius-m;
   background: $bg-primary;
@@ -14,14 +15,12 @@
 .title {
   font-size: $font-l;
   font-weight: 600;
-  margin-bottom: 8px;
 }
 
 .description {
   font-size: $font-m;
   color: $text-secondary;
   flex: 1;
-  margin-bottom: 12px;
 }
 
 .footer {
@@ -37,10 +36,5 @@
   width: fit-content;
   font-size: $font-s;
   color: $text-secondary;
-  padding: 2px 8px;
-  border: 1px solid $border-default;
   border-radius: $radius-full;
-  background: $bg-secondary;
-  font-family: $font-mono;
-  font-weight: 400;
 }

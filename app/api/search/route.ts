@@ -5,16 +5,25 @@ import { prisma } from '@/app/lib/prisma';
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const q = searchParams.get('q')?.trim();
+  const courseSlug = searchParams.get('courseSlug');
 
   if (!q || q.length === 0) {
     return NextResponse.json({ success: true, data: [] });
   }
 
   try {
+    const where: any = {
+      OR: [{ title: { contains: q } }, { description: { contains: q } }],
+    };
+
+    if (courseSlug) {
+      where.course = {
+        slug: courseSlug,
+      };
+    }
+
     const lessons = await prisma.lesson.findMany({
-      where: {
-        OR: [{ title: { contains: q } }, { description: { contains: q } }],
-      },
+      where,
       include: {
         course: {
           select: {

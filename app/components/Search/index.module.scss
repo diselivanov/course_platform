@@ -121,9 +121,9 @@
   }
 }
 
-.resultCourse {
+.resultDescription {
   font-size: $font-s;
-  color: $text-secondary;
+  color: $text-tertiary;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -131,7 +131,7 @@
 
 .resultTitle {
   font-size: $font-s;
-  color: $text-tertiary;
+  color: $text-primary;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -149,4 +149,11 @@
   font-size: $font-s;
   color: $text-tertiary;
   padding: 10px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .modal {
+    width: 95%;
+    max-height: 80vh;
+  }
 }

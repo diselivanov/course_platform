@@ -12,7 +12,7 @@ import {
 import Icon from '../Icon';
 import styles from './index.module.scss';
 
-type AlertType = 'error' | 'success' | 'info';
+type AlertType = 'error' | 'success';
 
 interface AlertItem {
   id: string;
@@ -41,7 +41,6 @@ interface AlertProviderProps {
 const ICON_MAP: Record<AlertType, ReactNode> = {
   error: <Icon name="cross" size={18} />,
   success: <Icon name="check_mark" size={20} />,
-  info: null,
 };
 
 export function AlertProvider({ children }: AlertProviderProps) {

@@ -1,0 +1,21 @@
+@use '@/app/variables.scss' as *;
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $control-height-m;
+  height: $control-height-m;
+  border-radius: $radius-full;
+  background: $bg-tertiary;
+  color: $text-secondary;
+  border: 1px solid $border-default;
+  font-size: $font-l;
+  text-decoration: none;
+  flex-shrink: 0;
+  user-select: none;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}

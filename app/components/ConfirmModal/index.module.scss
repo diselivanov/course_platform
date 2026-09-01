@@ -39,3 +39,14 @@
   gap: 10px;
   justify-content: flex-end;
 }
+
+@media (max-width: $breakpoint-mobile) {
+  .modal {
+    max-width: 95%;
+  }
+
+  .actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}

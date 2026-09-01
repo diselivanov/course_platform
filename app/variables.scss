@@ -23,9 +23,9 @@ $accent-green-light: var(--accent-green-light, hsla(144, 72%, 37%, 0.14));
 $accent-orange: hsl(48, 100%, 44%);
 $accent-orange-light: var(--accent-orange-light, hsla(48, 100%, 44%, 0.14));
 
-$overlay: var(--overlay, rgba(0, 0, 0, 0.25));
+$overlay: var(--overlay, rgba(0, 0, 0, 0.2));
 
-$radius-xs: 4px;
+$radius-xs: 5px;
 $radius-s: 8px;
 $radius-m: 12px;
 $radius-full: 999px;
@@ -42,8 +42,10 @@ $font-mono:
 
 $control-height-m: 34px;
 
-$header-height: 50px;
-$sidebar-width: 260px;
+$header-height: 48px;
+$sidebar-width: 280px;
 
 $form-width-s: 320px;
 $form-width-m: 480px;
+
+$breakpoint-mobile: 768px;
