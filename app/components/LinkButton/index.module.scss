@@ -1,11 +1,10 @@
 @use '@/app/variables.scss' as *;
-@use '@/app/mixins.scss' as *;
 
 .button {
-  padding: 0 14px;
+  padding: 0 16px;
   font-size: $font-m;
   font-weight: 500;
-  border: 1px solid;
+  border: 1px solid transparent;
   border-radius: $radius-s;
   cursor: pointer;
   display: inline-flex;
@@ -15,8 +14,6 @@
   font-family: inherit;
   min-height: $control-height-m;
   user-select: none;
-  gap: 6px;
-  width: fit-content;
 
   &:disabled {
     cursor: not-allowed;
@@ -24,10 +21,12 @@
     pointer-events: none;
   }
 
-  &:hover:not(:disabled) {
-    svg {
-      transform: translateX(2px);
-    }
+  &.rounded-default {
+    border-radius: $radius-s;
+  }
+
+  &.rounded-full {
+    border-radius: $radius-full;
   }
 }
 
@@ -41,44 +40,22 @@
 .primary {
   color: $text-on-color;
   background: $accent-blue;
-  border-color: $accent-blue-hover;
-  text-shadow: 0 1px 1px rgba(9, 11, 11, 0.6);
-  box-shadow:
-    rgba(51, 153, 255, 0.5) 0px 1px 0px inset,
-    rgba(0, 77, 153, 0.4) 0px -1px 0px 1px inset,
-    rgba(9, 11, 11, 0.1) 0px 2px 4px 0px;
 
   &:hover:not(:disabled) {
     background: $accent-blue-hover;
-    border-color: $accent-blue-hover;
-    box-shadow:
-      rgba(51, 153, 255, 0.3) 0px 1px 0px inset,
-      rgba(0, 77, 153, 0.3) 0px -1px 0px 1px inset,
-      rgba(9, 11, 11, 0.15) 0px 2px 6px 0px;
   }
 }
 
 .secondary {
   color: $text-primary;
-  background: $bg-secondary;
+  background: $bg-primary;
   border-color: $border-default;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-  box-shadow:
-    rgba(0, 0, 0, 0.02) 0px 1px 0px inset,
-    rgba(0, 0, 0, 0.05) 0px -1px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
 
   &:hover:not(:disabled) {
-    background: $bg-tertiary;
-    border-color: $border-default;
-    box-shadow:
-      rgba(0, 0, 0, 0.02) 0px 1px 0px inset,
-      rgba(0, 0, 0, 0.05) 0px -1px 0px 1px inset,
-      rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
+    background: $bg-secondary;
   }
 }
 
 .fullWidth {
   width: 100%;
-  justify-content: center;
 }

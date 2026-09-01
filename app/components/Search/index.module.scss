@@ -84,7 +84,6 @@
   flex-direction: column;
   min-height: 0;
   padding: 10px;
-  gap: 4px;
 }
 
 .resultItem {
@@ -96,10 +95,9 @@
   cursor: pointer;
   text-decoration: none;
   color: $text-primary;
-  background: $bg-secondary;
 
   &:hover {
-    background: $bg-tertiary;
+    background: $bg-secondary;
   }
 }
 

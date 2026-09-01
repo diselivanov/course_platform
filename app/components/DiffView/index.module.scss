@@ -35,14 +35,17 @@
 
   &.NEW {
     background: $accent-green;
+    box-shadow: 0 0 0 1.5px $accent-green-light;
   }
 
   &.EDITED {
     background: $accent-orange;
+    box-shadow: 0 0 0 1.5px $accent-orange-light;
   }
 
   &.DELETED {
     background: $accent-red;
+    box-shadow: 0 0 0 1.5px $accent-red-light;
   }
 }
 

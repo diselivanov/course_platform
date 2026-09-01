@@ -33,7 +33,7 @@ export default async function Layout({ children }: LayoutProps) {
             <nav className={styles.nav}>
               <ClientLayout isAuth={isAuth} />
               <div className={styles.section}>
-                <div className={styles.sectionTitle}>МЕНЮ 📁</div>
+                <div className={styles.sectionTitle}>МЕНЮ</div>
                 <Link href="/" className={styles.navLink}>
                   <span className={styles.linkText}>Главная</span>
                 </Link>

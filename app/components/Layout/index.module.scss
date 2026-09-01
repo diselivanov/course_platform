@@ -80,7 +80,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
+  padding: 6px 6px 6px 20px;
   color: $text-secondary;
   font-size: $font-m;
   text-decoration: none;
@@ -88,6 +88,17 @@
   width: 100%;
   min-width: 0;
   user-select: none;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: $border-default;
+  }
 
   &:hover {
     background: $bg-secondary;
@@ -156,19 +167,6 @@
   justify-content: center;
   flex-shrink: 0;
   background: $bg-primary;
-}
-
-.progressCounter {
-  display: flex;
-  width: fit-content;
-  font-size: $font-s;
-  color: $text-secondary;
-  padding: 2px 8px;
-  border: 1px solid $border-default;
-  border-radius: $radius-full;
-  background: $bg-secondary;
-  font-family: $font-mono;
-  font-weight: 400;
 }
 
 .navActions {

@@ -107,20 +107,12 @@ export default function ClientLayout({ isAuth }: ClientLayoutProps) {
     return null;
   }
 
-  const completedCount = completedIds.length;
   const totalCount = lessons.length;
 
   return (
     <div className={styles.section}>
       <div className={styles.sectionTitle}>
-        {totalCount > 0 && (
-          <span className={styles.sectionCourse}>
-            КУРС 🎓
-            <span className={styles.progressCounter}>
-              Уроков: {completedCount} из {totalCount}
-            </span>
-          </span>
-        )}
+        {totalCount > 0 && <span className={styles.sectionCourse}>КУРС</span>}
       </div>
       {lessons.map(lesson => {
         const isActive = lessonSlug === lesson.slug;

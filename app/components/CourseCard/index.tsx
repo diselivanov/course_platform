@@ -22,8 +22,8 @@ export default function CourseCard({
       <p className={styles.description}>{shortDescription}</p>
       <div className={styles.footer}>
         <span className={styles.lessonsCount}>Уроков: {lessonsCount}</span>
-        <LinkButton href={`/course/${slug}`}>
-          Перейти <Icon name="arrow_right" size={14} />
+        <LinkButton rounded="full" href={`/course/${slug}`}>
+          Перейти
         </LinkButton>
       </div>
     </div>
