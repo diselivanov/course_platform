@@ -104,7 +104,7 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
 
         {!selectedLesson ? (
           <>
-            <h1 className={styles.title}>Курс: {course.title}</h1>
+            <h1 className={styles.title}>{course.title}</h1>
 
             <VideoPlayer youtubeUrl={course.youtubeUrl} vkUrl={course.vkUrl} />
 
@@ -120,7 +120,7 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
                 Урок {selectedLesson.number}: {selectedLesson.title}
               </h1>
               <Link href={`/course/${courseSlug}`} className={styles.courseLink}>
-                Курс: {course.title}
+                {course.title}
               </Link>
             </div>
 
