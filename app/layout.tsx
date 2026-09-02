@@ -12,10 +12,10 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: 'Wincode - %s',
+    template: '%s | Wincode',
     default: 'Wincode',
   },
-  description: '',
+  description: 'Курсы по разработке современных продуктов',
   icons: {
     icon: [
       { url: '/favicon.ico' },

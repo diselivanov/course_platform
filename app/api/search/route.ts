@@ -1,8 +1,15 @@
 import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/app/lib/prisma';
+import { checkAuth } from '@/app/lib/dal';
 
 export async function GET(request: NextRequest) {
+  const isAuth = await checkAuth();
+
+  if (!isAuth) {
+    return NextResponse.json({ error: 'Необходима авторизация' }, { status: 401 });
+  }
+
   const { searchParams } = new URL(request.url);
   const q = searchParams.get('q')?.trim();
   const courseSlug = searchParams.get('courseSlug');

@@ -1,13 +1,19 @@
 import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/app/lib/prisma';
-import { getSession } from '@/app/lib/dal';
+import { checkAuth, getSession } from '@/app/lib/dal';
 
 export async function GET(
   request: NextRequest,
   { params }: { params: Promise<{ courseSlug: string }> }
 ) {
   try {
+    const isAuth = await checkAuth();
+
+    if (!isAuth) {
+      return NextResponse.json({ error: 'Необходима авторизация' }, { status: 401 });
+    }
+
     const { courseSlug } = await params;
     const session = await getSession();
 

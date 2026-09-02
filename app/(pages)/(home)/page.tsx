@@ -2,7 +2,12 @@ import { prisma } from '@/app/lib/prisma';
 import { checkAdmin } from '@/app/lib/dal';
 import CourseCard from '@/app/components/CourseCard';
 import LinkButton from '@/app/components/LinkButton';
+import { Metadata } from 'next';
 import styles from './page.module.scss';
+
+export const metadata: Metadata = {
+  title: 'Курсы',
+};
 
 export default async function HomePage() {
   const isAdmin = await checkAdmin();
@@ -24,9 +29,7 @@ export default async function HomePage() {
       </div>
 
       {courses.length === 0 ? (
-        <div className={styles.empty}>
-          {isAdmin ? 'Создайте первый курс' : 'Курсы пока не добавлены'}
-        </div>
+        <div className={styles.empty}>Курсы пока не добавлены</div>
       ) : (
         <div className={styles.grid}>
           {courses.map(course => (

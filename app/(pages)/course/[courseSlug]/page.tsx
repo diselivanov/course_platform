@@ -1,5 +1,5 @@
 import { prisma } from '@/app/lib/prisma';
-import { checkAdmin } from '@/app/lib/dal';
+import { checkAdmin, checkAuth } from '@/app/lib/dal';
 import LinkButton from '@/app/components/LinkButton';
 import VideoPlayer from '@/app/components/VideoPlayer';
 import DiffView from '@/app/components/DiffView';
@@ -7,7 +7,42 @@ import { DiffViewModeProvider } from './DiffViewControls';
 import DiffViewControls from './DiffViewControls';
 import Link from 'next/link';
 import styles from './page.module.scss';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: CoursePageProps): Promise<Metadata> {
+  const { courseSlug } = await params;
+  const { lesson: lessonSlug } = await searchParams;
+
+  const course = await prisma.course.findUnique({
+    where: { slug: courseSlug },
+    include: {
+      lessons: true,
+    },
+  });
+
+  if (!course) {
+    return {
+      title: 'Курс не найден',
+    };
+  }
+
+  if (lessonSlug) {
+    const lesson = course.lessons.find(l => l.slug === lessonSlug);
+    if (lesson) {
+      return {
+        title: `${lesson.title}`,
+      };
+    }
+  }
+
+  return {
+    title: course.title,
+  };
+}
 
 interface CoursePageProps {
   params: Promise<{ courseSlug: string }>;
@@ -17,6 +52,12 @@ interface CoursePageProps {
 export default async function CoursePage({ params, searchParams }: CoursePageProps) {
   const { courseSlug } = await params;
   const { lesson: lessonSlug } = await searchParams;
+
+  const isAuth = await checkAuth();
+
+  if (!isAuth) {
+    redirect('/sign-in');
+  }
 
   const isAdmin = await checkAdmin();
 
