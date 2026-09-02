@@ -1,6 +1,13 @@
 @use '@/app/variables.scss' as *;
 
-.button {
+.group {
+  display: flex;
+  padding: 2px;
+  border-radius: $radius-full;
+  border: 1px solid $border-default;
+}
+
+.option {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,22 +16,25 @@
   width: 30px;
   border: none;
   border-radius: $radius-full;
-  background: none;
-  color: $text-secondary;
+  background: transparent;
+  color: $text-primary;
   cursor: pointer;
   font-size: $font-s;
   font-family: inherit;
 
   &:hover {
+    color: $text-tertiary;
+  }
+
+  &.active {
     background: $bg-tertiary;
-    color: $text-primary;
+
+    &:hover {
+      color: $text-primary;
+    }
   }
 
   svg {
     flex-shrink: 0;
-  }
-
-  span {
-    white-space: nowrap;
   }
 }

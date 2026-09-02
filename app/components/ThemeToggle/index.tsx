@@ -45,12 +45,31 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
-export default function ThemeToggle() {
+export function ThemeToggleGroup() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button className={styles.button} onClick={toggleTheme}>
-      <Icon name={theme === 'light' ? 'light_mode' : 'dark_mode'} size={16} />
-    </button>
+    <div className={styles.group}>
+      <button
+        className={`${styles.option} ${theme === 'light' ? styles.active : ''}`}
+        onClick={() => {
+          if (theme !== 'light') toggleTheme();
+        }}
+        aria-label="Light theme"
+      >
+        <Icon name="light_mode" size={16} />
+      </button>
+      <button
+        className={`${styles.option} ${theme === 'dark' ? styles.active : ''}`}
+        onClick={() => {
+          if (theme !== 'dark') toggleTheme();
+        }}
+        aria-label="Dark theme"
+      >
+        <Icon name="dark_mode" size={16} />
+      </button>
+    </div>
   );
 }
+
+export default ThemeToggleGroup;
