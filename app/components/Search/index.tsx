@@ -200,7 +200,7 @@ export default function Search({ courseSlug }: SearchProps) {
                   }
                 >
                   <span className={styles.resultTitle}>
-                    Урок {result.number}: {getHighlightedSnippet(result.title, debouncedQuery, 60)}
+                    {result.number}. {getHighlightedSnippet(result.title, debouncedQuery, 60)}
                   </span>
                   {result.description && (
                     <span className={styles.resultDescription}>

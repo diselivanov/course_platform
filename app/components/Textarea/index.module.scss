@@ -23,10 +23,14 @@
   color: $text-primary;
   outline: none;
   resize: vertical;
-  min-height: 140px;
+  min-height: 150px;
 
   &.error {
     border-color: $accent-red;
+  }
+
+  &:focus {
+    border-color: $icon-default;
   }
 }
 

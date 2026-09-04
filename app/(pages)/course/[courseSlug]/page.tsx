@@ -117,7 +117,7 @@ export default async function CoursePage({ params, searchParams }: CoursePagePro
           <>
             <div className={styles.lessonHeader}>
               <h1 className={styles.lessonTitle}>
-                Урок {selectedLesson.number}: {selectedLesson.title}
+                {selectedLesson.number}. {selectedLesson.title}
               </h1>
               <Link href={`/course/${courseSlug}`} className={styles.courseLink}>
                 {course.title}
